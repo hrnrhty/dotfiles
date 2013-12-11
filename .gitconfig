@@ -1,0 +1,22 @@
+#                           _ __                   _____
+#                    ____ _(_) /__________  ____  / __(_)___ _
+#                   / __ `/ / __/ ___/ __ \/ __ \/ /_/ / __ `/
+#                 _/ /_/ / / /_/ /__/ /_/ / / / / __/ / /_/ /
+#                (_)__, /_/\__/\___/\____/_/ /_/_/ /_/\__, /
+#                 /____/                             /____/
+#
+#                                                   - .gitconfig
+#
+#=============================================================================
+[core]
+	autocrlf = false
+	editor = "vim -c 'set fileencoding=utf-8'"
+	excludesfile = ~/.gitignore
+[merge]
+	tool = vimdiff
+[mergetool]
+	trustExitCode = false
+[color]
+	ui = auto
+[alias]
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --oneline --decorate

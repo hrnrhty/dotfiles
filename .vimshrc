@@ -1,0 +1,46 @@
+#                           _                __
+#                    _   __(_)___ ___  _____/ /_  __________
+#                   | | / / / __ `__ \/ ___/ __ \/ ___/ ___/
+#                  _| |/ / / / / / / (__  ) / / / /  / /__
+#                 (_)___/_/_/ /_/ /_/____/_/ /_/_/   \___/
+#
+#                                                   - .vimshrc
+#
+#=============================================================================
+#==== Aliases ====                                                         {{{
+
+alias ls='ls -F --color'
+alias l='ls'
+alias la='ls -a'
+alias ll='ls -l'
+alias lla='ls -la'
+
+#---- Git ----
+alias gad='git add'
+alias gb='git branch --color'
+alias gba='git branch --color -a'
+alias gc='git commit'
+alias gca='git commit -a'
+alias gch='git checkout'
+alias gcp='git cherry-pick'
+alias gd='git diff --color'
+alias gds='git diff --color --stat'
+alias gf='git fetch'
+alias gfa='git fetch --all'
+alias gh='git hist --color'
+alias gha='git hist --color --all'
+alias gl='git log --color'
+alias gm='git merge'
+alias gmv='git mv'
+alias gpl='git pull'
+alias gpla='git pull --all'
+alias gps='git push'
+alias gpsa='git push --all'
+alias grb='git rebase'
+alias grm='git rm'
+alias grst='git reset --hard'
+alias gs='git status'
+alias gt='git tag'
+
+# }}}
+#=============================================================================
