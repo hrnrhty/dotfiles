@@ -15,49 +15,49 @@ let g:cs_1       = 'jellybeans'
 let g:cs_2       = 'hybrid-light'
 
 function! s:DisableHlAttr()
-	highlight Conditional gui=NONE
-	highlight Constant gui=NONE
-	highlight Debug gui=NONE
-	highlight Comment gui=NONE
-	highlight DiffText gui=NONE
-	highlight Directory gui=NONE
-	highlight ErrorMsg gui=NONE
-	highlight Exception gui=NONE
-	highlight Keyword gui=NONE
-	highlight Macro gui=NONE
-	highlight MatchParen gui=NONE
-	highlight PreCondit gui=NONE
-	highlight Repeat gui=NONE
-	highlight SpecialChar gui=NONE
-	highlight SpecialComment gui=NONE
-	highlight Special gui=NONE
-	highlight Statement gui=NONE
-	highlight SpecialKey gui=NONE
-	highlight Statusline gui=NONE
-	highlight StorageClass gui=NONE
-	highlight String gui=NONE
-	highlight Tag gui=NONE
-	highlight Todo gui=NONE
-	highlight VertSplit gui=NONE
-	highlight WarningMsg gui=NONE
+    highlight Conditional gui=NONE
+    highlight Constant gui=NONE
+    highlight Debug gui=NONE
+    highlight Comment gui=NONE
+    highlight DiffText gui=NONE
+    highlight Directory gui=NONE
+    highlight ErrorMsg gui=NONE
+    highlight Exception gui=NONE
+    highlight Keyword gui=NONE
+    highlight Macro gui=NONE
+    highlight MatchParen gui=NONE
+    highlight PreCondit gui=NONE
+    highlight Repeat gui=NONE
+    highlight SpecialChar gui=NONE
+    highlight SpecialComment gui=NONE
+    highlight Special gui=NONE
+    highlight Statement gui=NONE
+    highlight SpecialKey gui=NONE
+    highlight Statusline gui=NONE
+    highlight StorageClass gui=NONE
+    highlight String gui=NONE
+    highlight Tag gui=NONE
+    highlight Todo gui=NONE
+    highlight VertSplit gui=NONE
+    highlight WarningMsg gui=NONE
 endfunction
 
 function! s:ColorSchemeToggle()
-	if g:colors_name == g:default_cs
-		let next = g:cs_0
-	elseif g:colors_name == g:cs_0
-		let next = g:cs_1
-	elseif g:colors_name == g:cs_1
-		let next = g:cs_2
-	elseif g:colors_name == g:cs_2
-		let next = g:default_cs
-	else
-		let next = g:default_cs
-	endif
-	execute 'colorscheme '.next
-	call s:DisableHlAttr()
-	redraw
-	echo 'colorscheme changed "'.next.'"'
+    if g:colors_name == g:default_cs
+        let next = g:cs_0
+    elseif g:colors_name == g:cs_0
+        let next = g:cs_1
+    elseif g:colors_name == g:cs_1
+        let next = g:cs_2
+    elseif g:colors_name == g:cs_2
+        let next = g:default_cs
+    else
+        let next = g:default_cs
+    endif
+    execute 'colorscheme '.next
+    call s:DisableHlAttr()
+    redraw
+    echo 'colorscheme changed "'.next.'"'
 endfunction
 
 execute 'colorscheme '.g:default_cs
@@ -81,11 +81,11 @@ let fontname = 'Ricty\ for\ Powerline'
 
 " Default font setting
 if has('win32') || has('win64') || has('mac')
-	execute 'set guifont='.fontname.':h12'
+    execute 'set guifont='.fontname.':h12'
 elseif has('unix')
-	execute 'set guifont='.fontname.'\ 12'
+    execute 'set guifont='.fontname.'\ 12'
 else
-	execute 'set guifont='
+    execute 'set guifont='
 endif
 
 " }}}
@@ -118,13 +118,13 @@ set guioptions-=m
 nnoremap <F2> :<C-u>call <SID>MenuToggle()<CR>
 
 function! s:MenuToggle()
-	if &guioptions =~# 'T'
-		set guioptions-=T
-		set guioptions-=m
-	else
-		set guioptions+=T
-		set guioptions+=m
-	endif
+    if &guioptions =~# 'T'
+        set guioptions-=T
+        set guioptions-=m
+    else
+        set guioptions+=T
+        set guioptions+=m
+    endif
 endfunction
 
 " }}}

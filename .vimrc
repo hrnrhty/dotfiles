@@ -20,14 +20,14 @@ set encoding=utf-8
 
 " Default file encoding and file format
 if has('win32') || has('win64')
-	set fileencoding=cp932
-	set fileformat=dos
+    set fileencoding=cp932
+    set fileformat=dos
 elseif has('unix') || has('mac')
-	set fileencoding=utf-8
-	set fileformat=unix
+    set fileencoding=utf-8
+    set fileformat=unix
 else
-	set fileencoding=utf-8
-	set fileformat=unix
+    set fileencoding=utf-8
+    set fileformat=unix
 endif
 
 " File encoding Detection
@@ -40,7 +40,7 @@ set fileencodings=iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,utf-8,ucs-bom,eu
 filetype off
 
 if has('vim_starting')
-	set runtimepath+=~/.vim/bundle/neobundle.vim/
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#rc(expand('~/.vim/bundle'))
@@ -108,14 +108,14 @@ let g:EasyMotion_leader_key = ',,'
 "==== vim-powerline ====                                                   {{{
 
 if has('gui_running')
-	" Use custom icons and arrows. Requires a patched font.
-	let g:Powerline_symbols = 'fancy'
+    " Use custom icons and arrows. Requires a patched font.
+    let g:Powerline_symbols = 'fancy'
 elseif has('unix') && &term=='xterm-256color'
-	" Use custom icons and arrows. Requires a patched font.
-	let g:Powerline_symbols = 'fancy'
+    " Use custom icons and arrows. Requires a patched font.
+    let g:Powerline_symbols = 'fancy'
 else
-	" Don't use any special characters.
-	let g:Powerline_symbols = 'compatible'
+    " Don't use any special characters.
+    let g:Powerline_symbols = 'compatible'
 endif
 
 " }}}
@@ -154,7 +154,7 @@ smap <expr><TAB> neosnippet#jumpable() ?
 
 " For snippet_complete marker
 if has('conceal')
-	set conceallevel=2 concealcursor=i
+    set conceallevel=2 concealcursor=i
 endif
 
 " }}}
@@ -202,36 +202,36 @@ nnoremap <silent> [unite]s :<C-u>Unite source<CR>
 nnoremap <silent> [unite]t :<C-u>Unite -no-start-insert tab<CR>
 
 augroup unite_settings
-	autocmd!
-	autocmd FileType unite call s:unite_settings()
+    autocmd!
+    autocmd FileType unite call s:unite_settings()
 augroup END
 
 function! s:unite_settings()
-	" Quit unite by ESC
-	nmap <buffer> <ESC> <Plug>(unite_exit)
+    " Quit unite by ESC
+    nmap <buffer> <ESC> <Plug>(unite_exit)
 
-	" Move to Normal mode by 'jj' or 'kk' on Insert mode
-	imap <buffer> jj <Plug>(unite_insert_leave)
-	imap <buffer> kk <Plug>(unite_insert_leave)
+    " Move to Normal mode by 'jj' or 'kk' on Insert mode
+    imap <buffer> jj <Plug>(unite_insert_leave)
+    imap <buffer> kk <Plug>(unite_insert_leave)
 
-	" Delete backslash by C-w
-	imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
+    " Delete backslash by C-w
+    imap <buffer> <C-w> <Plug>(unite_delete_backward_path)
 
-"	" split by 's'
-	nnoremap <silent><buffer><expr> s unite#smart_map('s', unite#do_action('split'))
-	inoremap <silent><buffer><expr> s unite#smart_map('s', unite#do_action('split'))
-"
-"	" vsplit by 'v'
-	nnoremap <silent><buffer><expr> v unite#smart_map('v', unite#do_action('vsplit'))
-	inoremap <silent><buffer><expr> v unite#smart_map('v', unite#do_action('vsplit'))
-"
-"	" open by 'o'
-	nnoremap <silent><buffer><expr> o unite#smart_map('o', unite#do_action('open'))
-	inoremap <silent><buffer><expr> o unite#smart_map('o', unite#do_action('open'))
-"
-"	" Open with vimfiler by 'f'
-	nnoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
-	inoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
+    " split by 's'
+    nnoremap <silent><buffer><expr> s unite#smart_map('s', unite#do_action('split'))
+    inoremap <silent><buffer><expr> s unite#smart_map('s', unite#do_action('split'))
+
+    " vsplit by 'v'
+    nnoremap <silent><buffer><expr> v unite#smart_map('v', unite#do_action('vsplit'))
+    inoremap <silent><buffer><expr> v unite#smart_map('v', unite#do_action('vsplit'))
+
+    " open by 'o'
+    nnoremap <silent><buffer><expr> o unite#smart_map('o', unite#do_action('open'))
+    inoremap <silent><buffer><expr> o unite#smart_map('o', unite#do_action('open'))
+
+    " Open with vimfiler by 'f'
+    nnoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
+    inoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
 endfunction
 
 " }}}
@@ -246,13 +246,13 @@ let g:vimfiler_safe_mode_by_default = 1
  
 " Key mappings for vimfiler
 augroup vimfiler
-	autocmd!
-	autocmd FileType vimfiler call s:vimfiler_settings()
+    autocmd!
+    autocmd FileType vimfiler call s:vimfiler_settings()
 augroup END
 
 function! s:vimfiler_settings()
-	nmap <buffer> q <Plug>(vimfiler_exit)
-	nmap <buffer> Q <Plug>(vimfiler_hide)
+    nmap <buffer> q <Plug>(vimfiler_exit)
+    nmap <buffer> Q <Plug>(vimfiler_hide)
 endfunction
 
 " Open vimfiler
@@ -270,7 +270,7 @@ nnoremap <silent> ,t :<C-u>VimFilerExplorer<CR>
 
 " Set encoding UTF-8 when a cygwin command is executed
 if has('win32') || has('win64')
-	let g:vimshell_interactive_encodings = {'/bin': 'utf-8', '/usr/bin/': 'utf-8'}
+    let g:vimshell_interactive_encodings = {'/bin': 'utf-8', '/usr/bin/': 'utf-8'}
 endif
 
 " Use $HOSTNAME + current directory as vimshell prompt
@@ -283,13 +283,13 @@ let g:vimshell_popup_height = 80
 nnoremap <silent> ,s :<C-u>VimShellBufferDir -popup -toggle<CR>
 
 augroup vimshell_settings
-	autocmd!
-	autocmd FileType vimshell call s:vimshell_settings()
+    autocmd!
+    autocmd FileType vimshell call s:vimshell_settings()
 augroup END
 
 function! s:vimshell_settings()
-	" Hide vimshell buffer by ESC
-	nmap <buffer> <ESC><ESC><ESC> <Plug>(vimshell_hide)
+    " Hide vimshell buffer by ESC
+    nmap <buffer> <ESC><ESC><ESC> <Plug>(vimshell_hide)
 endfunction
 
 " }}}
@@ -433,15 +433,15 @@ nmap <C-l> <C-w>l
 nnoremap <silent> ,n :<C-u>call <SID>NumberToggle()<CR>
 
 function! s:NumberToggle()
-	if (&number)
-		set nonumber
-		set relativenumber
-	elseif (&relativenumber)
-		set norelativenumber
-		set number
-	else
-		set number
-	endif
+    if (&number)
+        set nonumber
+        set relativenumber
+    elseif (&relativenumber)
+        set norelativenumber
+        set number
+    else
+        set number
+    endif
 endfunction
 
 " }}}
@@ -571,8 +571,8 @@ set diffopt=vertical,icase
 
 " Disable the auto comment insertion
 augroup fopt
-	autocmd!
-	autocmd FileType * setlocal formatoptions-=ro
+    autocmd!
+    autocmd FileType * setlocal formatoptions-=ro
 augroup END
 
 " grep command
@@ -615,65 +615,65 @@ let g:filetype_m = 'objc'
 
 if !has('gui_running') && &term != 'linux'
 
-	" Enable 256-color
-	set t_Co=256
+    " Enable 256-color
+    set t_Co=256
 
-	let g:default_cs = 'molokai'
-	let g:cs_0       = 'railscasts'
-	let g:cs_1       = 'jellybeans'
-	let g:cs_2       = 'hybrid-light'
+    let g:default_cs = 'molokai'
+    let g:cs_0       = 'railscasts'
+    let g:cs_1       = 'jellybeans'
+    let g:cs_2       = 'hybrid-light'
 
-	function! s:DisableHlAttr()
-		highlight Conditional cterm=NONE
-		highlight Constant cterm=NONE
-		highlight Debug cterm=NONE
-		highlight Comment cterm=NONE
-		highlight DiffText cterm=NONE
-		highlight Directory cterm=NONE
-		highlight ErrorMsg cterm=NONE
-		highlight Exception cterm=NONE
-		highlight Keyword cterm=NONE
-		highlight Macro cterm=NONE
-		highlight MatchParen cterm=NONE
-		highlight PreCondit cterm=NONE
-		highlight Repeat cterm=NONE
-		highlight SpecialChar cterm=NONE
-		highlight SpecialComment cterm=NONE
-		highlight Special cterm=NONE
-		highlight Statement cterm=NONE
-		highlight SpecialKey cterm=NONE
-		highlight Statusline cterm=NONE
-		highlight StorageClass cterm=NONE
-		highlight String cterm=NONE
-		highlight Tag cterm=NONE
-		highlight Todo cterm=NONE
-		highlight VertSplit cterm=NONE
-		highlight WarningMsg cterm=NONE
-	endfunction
+    function! s:DisableHlAttr()
+        highlight Conditional cterm=NONE
+        highlight Constant cterm=NONE
+        highlight Debug cterm=NONE
+        highlight Comment cterm=NONE
+        highlight DiffText cterm=NONE
+        highlight Directory cterm=NONE
+        highlight ErrorMsg cterm=NONE
+        highlight Exception cterm=NONE
+        highlight Keyword cterm=NONE
+        highlight Macro cterm=NONE
+        highlight MatchParen cterm=NONE
+        highlight PreCondit cterm=NONE
+        highlight Repeat cterm=NONE
+        highlight SpecialChar cterm=NONE
+        highlight SpecialComment cterm=NONE
+        highlight Special cterm=NONE
+        highlight Statement cterm=NONE
+        highlight SpecialKey cterm=NONE
+        highlight Statusline cterm=NONE
+        highlight StorageClass cterm=NONE
+        highlight String cterm=NONE
+        highlight Tag cterm=NONE
+        highlight Todo cterm=NONE
+        highlight VertSplit cterm=NONE
+        highlight WarningMsg cterm=NONE
+    endfunction
 
-	function! s:ColorSchemeToggle()
-		if g:colors_name == g:default_cs
-			let next = g:cs_0
-		elseif g:colors_name == g:cs_0
-			let next = g:cs_1
-		elseif g:colors_name == g:cs_1
-			let next = g:cs_2
-		elseif g:colors_name == g:cs_2
-			let next = g:default_cs
-		else
-			let next = g:default_cs
-		endif
-		execute 'colorscheme '.next
-		call s:DisableHlAttr()
-		redraw
-		echo 'colorscheme changed "'.next.'"'
-	endfunction
+    function! s:ColorSchemeToggle()
+        if g:colors_name == g:default_cs
+            let next = g:cs_0
+        elseif g:colors_name == g:cs_0
+            let next = g:cs_1
+        elseif g:colors_name == g:cs_1
+            let next = g:cs_2
+        elseif g:colors_name == g:cs_2
+            let next = g:default_cs
+        else
+            let next = g:default_cs
+        endif
+        execute 'colorscheme '.next
+        call s:DisableHlAttr()
+        redraw
+        echo 'colorscheme changed "'.next.'"'
+    endfunction
 
-	execute 'colorscheme '.g:default_cs
-	call s:DisableHlAttr()
+    execute 'colorscheme '.g:default_cs
+    call s:DisableHlAttr()
 
-	" Key mapping for ColorSchemeToggle
-	nnoremap ,c :<C-u>call <SID>ColorSchemeToggle()<CR>
+    " Key mapping for ColorSchemeToggle
+    nnoremap ,c :<C-u>call <SID>ColorSchemeToggle()<CR>
 
 endif
 
@@ -682,17 +682,17 @@ endif
 "==== for terminal ====                                                    {{{
 
 if has('unix') && &term=='xterm-256color'
-	" Cursor behavior
-"	let &t_ti.="\e[1 q"
-"	let &t_SI.="\e[5 q"
-"	let &t_EI.="\e[1 q"
-"	let &t_te.="\e[0 q"
+    " Cursor behavior
+"    let &t_ti.="\e[1 q"
+"    let &t_SI.="\e[5 q"
+"    let &t_EI.="\e[1 q"
+"    let &t_te.="\e[0 q"
 
-	" Arrow key
-	inoremap OA <Up>
-	inoremap OB <Down>
-	inoremap OC <Right>
-	inoremap OD <Left>
+    " Arrow key
+    inoremap OA <Up>
+    inoremap OB <Down>
+    inoremap OC <Right>
+    inoremap OD <Left>
 endif
 
 " }}}
