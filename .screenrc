@@ -8,7 +8,7 @@
 #
 #=============================================================================
 
-escape ^Zz
+escape ^Aa
 defscrollback 1000
 defbce on
 startup_message off
