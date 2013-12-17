@@ -52,6 +52,7 @@ NeoBundle 'Shougo/neobundle.vim',          { 'type__protocol' : 'https' }
 NeoBundle 'Shougo/neobundle-vim-recipes',  { 'type__protocol' : 'https' }
 
 " Original repos on github
+NeoBundle 'Kocha/vim-systemc',             { 'type__protocol' : 'https' }
 NeoBundle 'Lokaltog/vim-easymotion',       { 'type__protocol' : 'https' }
 NeoBundle 'Lokaltog/vim-powerline',        { 'type__protocol' : 'https' }
 NeoBundle 'Shougo/neocomplcache',          { 'type__protocol' : 'https' }
