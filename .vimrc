@@ -136,12 +136,12 @@ let g:neocomplcache_enable_smart_case = 1
 let g:neosnippet#snippets_directory = '~/.snippets'
 
 " Plugin key-mappings
-imap <expr><C-k> neosnippet#expandable_or_jumpable() ?
- \   "\<Plug>(neosnippet_expand_or_jump)"            :
+imap <expr><C-k> neosnippet#expandable() ?
+ \   "\<Plug>(neosnippet_expand)"            :
  \    pumvisible() ? "\<C-n>" : "\<C-k>"
 
-smap <expr><C-k> neosnippet#expandable_or_jumpable() ?
-\    "\<Plug>(neosnippet_expand_or_jump)"            :
+smap <expr><C-k> neosnippet#expandable() ?
+\    "\<Plug>(neosnippet_expand)"            :
 \    "\<C-k>"
 
 imap <expr><TAB> neosnippet#jumpable() ?
