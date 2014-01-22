@@ -57,6 +57,7 @@ NeoBundle 'Lokaltog/vim-easymotion',       { 'type__protocol' : 'https' }
 NeoBundle 'Lokaltog/vim-powerline',        { 'type__protocol' : 'https' }
 NeoBundle 'Shougo/neocomplcache',          { 'type__protocol' : 'https' }
 NeoBundle 'Shougo/neosnippet',             { 'type__protocol' : 'https' }
+NeoBundle 'Shougo/neosnippet-snippets',    { 'type__protocol' : 'https' }
 NeoBundle 'Shougo/unite.vim',              { 'type__protocol' : 'https' }
 NeoBundle 'Shougo/unite-help',             { 'type__protocol' : 'https' }
 NeoBundle 'Shougo/vimfiler',               { 'type__protocol' : 'https' }
