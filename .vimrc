@@ -626,8 +626,12 @@ set foldmethod=marker
 set foldlevelstart=0
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 
+" Prevent delay after ESC
+set timeout ttimeoutlen=0
+
 " .m files are Objective-C, not Matlab
 let g:filetype_m = 'objc'
+
 
 " }}}
 "=============================================================================
@@ -703,10 +707,10 @@ endif
 
 if has('unix') && &term=='xterm-256color'
     " Cursor behavior
-"    let &t_ti.="\e[1 q"
-"    let &t_SI.="\e[5 q"
-"    let &t_EI.="\e[1 q"
-"    let &t_te.="\e[0 q"
+    let &t_ti.="\eP\e[1 q\e\\"
+    let &t_SI.="\eP\e[5 q\e\\"
+    let &t_EI.="\eP\e[1 q\e\\"
+    let &t_te.="\eP\e[0 q\e\\"
 
     " Arrow key
     inoremap OA <Up>
