@@ -21,6 +21,9 @@ export LANG='ja_JP.UTF-8'
 export PS1='[\u@\h \W]\$ '
 export PS2='> '
 
+#---- Local bin path ----
+export PATH=${PATH}:${HOME}/bin
+
 #---- Other Settings ----
 export HISTSIZE=1000
 export LSCOLORS=exfxcxdxbxegedabagacad
