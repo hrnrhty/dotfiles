@@ -22,7 +22,9 @@ export PS1='[\u@\h \W]\$ '
 export PS2='> '
 
 #---- Local bin path ----
-export PATH=${PATH}:${HOME}/bin
+if [ -e ${HOME}/bin ]; then
+    export PATH=${PATH}:${HOME}/bin
+fi
 
 #---- Other Settings ----
 export HISTSIZE=1000
@@ -32,8 +34,7 @@ export LSCOLORS=exfxcxdxbxegedabagacad
 #=============================================================================
 #==== Aliases ====                                                         {{{
 
-if [ ${OSTYPE} = darwin13 ]
-then
+if [ ${OSTYPE} = darwin13 ]; then
     alias ls='ls -CF -G'
 else
     alias ls='ls -CF --color=auto --show-control-chars'
