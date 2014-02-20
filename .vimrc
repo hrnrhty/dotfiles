@@ -125,8 +125,8 @@ NeoBundle     'godlygeek/csapprox', {
 NeoBundle     'tomasr/molokai', {
     \   'type__protocol' : 'https' }
 
-NeoBundle     'jpo/vim-railscasts-theme', {
-    \   'type__protocol' : 'https' }
+"NeoBundle     'jpo/vim-railscasts-theme', {
+"    \   'type__protocol' : 'https' }
 
 NeoBundle     'nanotech/jellybeans.vim', {
     \   'type__protocol' : 'https' }
@@ -781,17 +781,28 @@ let g:filetype_m = 'objc'
 "=============================================================================
 "==== Color ====                                                           {{{
 
-if !has('gui_running') && &term != 'linux'
+let g:default_cs = 'molokai'
+let g:cs_0       = 'hybrid-light'
+let g:cs_1       = 'jellybeans'
 
-    " Enable 256-color
-    set t_Co=256
+function! g:ColorSchemeToggle()
+    if g:colors_name == g:default_cs
+        let next = g:cs_0
+    elseif g:colors_name == g:cs_0
+        let next = g:cs_1
+    elseif g:colors_name == g:cs_1
+        let next = g:default_cs
+    else
+        let next = g:default_cs
+    endif
+    execute 'colorscheme '.next
+    call g:DisableHlAttr()
+    redraw
+    echo 'colorscheme has changed: "'.next.'"'
+endfunction
 
-    let g:default_cs = 'molokai'
-    let g:cs_0       = 'railscasts'
-    let g:cs_1       = 'jellybeans'
-    let g:cs_2       = 'hybrid-light'
-
-    function! s:DisableHlAttr()
+function! g:DisableHlAttr()
+    if !has('gui_running') && &term != 'linux'
         highlight Conditional cterm=NONE
         highlight Constant cterm=NONE
         highlight Debug cterm=NONE
@@ -817,32 +828,44 @@ if !has('gui_running') && &term != 'linux'
         highlight Todo cterm=NONE
         highlight VertSplit cterm=NONE
         highlight WarningMsg cterm=NONE
-    endfunction
+    elseif has('gui_running')
+        highlight Conditional gui=NONE
+        highlight Constant gui=NONE
+        highlight Debug gui=NONE
+        highlight Comment gui=NONE
+        highlight DiffText gui=NONE
+        highlight Directory gui=NONE
+        highlight ErrorMsg gui=NONE
+        highlight Exception gui=NONE
+        highlight Keyword gui=NONE
+        highlight Macro gui=NONE
+        highlight MatchParen gui=NONE
+        highlight PreCondit gui=NONE
+        highlight Repeat gui=NONE
+        highlight SpecialChar gui=NONE
+        highlight SpecialComment gui=NONE
+        highlight Special gui=NONE
+        highlight Statement gui=NONE
+        highlight SpecialKey gui=NONE
+        highlight Statusline gui=NONE
+        highlight StorageClass gui=NONE
+        highlight String gui=NONE
+        highlight Tag gui=NONE
+        highlight Todo gui=NONE
+        highlight VertSplit gui=NONE
+        highlight WarningMsg gui=NONE
+    endif
+endfunction
 
-    function! s:ColorSchemeToggle()
-        if g:colors_name == g:default_cs
-            let next = g:cs_0
-        elseif g:colors_name == g:cs_0
-            let next = g:cs_1
-        elseif g:colors_name == g:cs_1
-            let next = g:cs_2
-        elseif g:colors_name == g:cs_2
-            let next = g:default_cs
-        else
-            let next = g:default_cs
-        endif
-        execute 'colorscheme '.next
-        call s:DisableHlAttr()
-        redraw
-        echo 'colorscheme changed "'.next.'"'
-    endfunction
+if !has('gui_running') && &term != 'linux'
+    " Enable 256-color
+    set t_Co=256
 
     execute 'colorscheme '.g:default_cs
-    call s:DisableHlAttr()
+    call g:DisableHlAttr()
 
     " Key mapping for ColorSchemeToggle
-    nnoremap ,c :<C-u>call <SID>ColorSchemeToggle()<CR>
-
+    nnoremap ,c :<C-u>call g:ColorSchemeToggle()<CR>
 endif
 
 " }}}
