@@ -365,9 +365,9 @@ function! s:unite_settings()
     nnoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
     inoremap <silent><buffer><expr> f unite#smart_map('f', unite#do_action('vimfiler'))
 
-    " Diff with current buffer by 'd'
-    nnoremap <silent><buffer><expr> d unite#smart_map('d', unite#do_action('diff'))
-    inoremap <silent><buffer><expr> d unite#smart_map('d', unite#do_action('diff'))
+    " Diff with current buffer by 'D'
+    nnoremap <silent><buffer><expr> D unite#smart_map('D', unite#do_action('diff'))
+    inoremap <silent><buffer><expr> D unite#smart_map('D', unite#do_action('diff'))
 endfunction
 
 " }}}
