@@ -35,7 +35,7 @@ set fileencodings=iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,utf-8,ucs-bom,eu
 
 " }}}
 "=============================================================================
-"==== NeoBundle ====                                                       {{{
+"==== neobundle.vim ====                                                   {{{
 
 filetype off
 
@@ -46,51 +46,181 @@ endif
 call neobundle#rc(expand('~/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
-NeoBundle 'Shougo/neobundle.vim',          { 'type__protocol' : 'https' }
+NeoBundle     'Shougo/neobundle.vim', {
+    \   'type__protocol' : 'https' }
 
 " Use NeoBundle standard recipes
-NeoBundle 'Shougo/neobundle-vim-recipes',  { 'type__protocol' : 'https' }
+NeoBundle     'Shougo/neobundle-vim-recipes', {
+    \   'type__protocol' : 'https' }
 
-" Original repos on github
-NeoBundle 'Kocha/vim-systemc',             { 'type__protocol' : 'https' }
-NeoBundle 'Lokaltog/vim-easymotion',       { 'type__protocol' : 'https' }
-NeoBundle 'Lokaltog/vim-powerline',        { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/neocomplcache',          { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/neosnippet',             { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/neosnippet-snippets',    { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/unite.vim',              { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/unite-help',             { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/vimfiler',               { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/vimproc',                { 'type__protocol' : 'https',
-                                         \   'build' : {
-                                         \       'cygwin'  : 'make -f make_cygwin.mak',
-                                         \       'mac'     : 'make -f make_mac.mak',
-                                         \       'unix'    : 'make -f make_unix.mak'
-                                         \   }
-                                         \ }
-NeoBundle 'Shougo/vimshell',               { 'type__protocol' : 'https' }
-NeoBundle 'amal-khailtash/vim-xdc-syntax', { 'type__protocol' : 'https' }
-NeoBundle 'davidoc/taskpaper.vim',         { 'type__protocol' : 'https' }
-NeoBundle 'godlygeek/csapprox',            { 'type__protocol' : 'https' }
-NeoBundle 'jezcope/vim-align',             { 'type__protocol' : 'https' }
-NeoBundle 'jpo/vim-railscasts-theme',      { 'type__protocol' : 'https' }
-NeoBundle 'nanotech/jellybeans.vim',       { 'type__protocol' : 'https' }
-NeoBundle 't9md/vim-textmanip',            { 'type__protocol' : 'https' }
-NeoBundle 'thinca/vim-fontzoom',           { 'type__protocol' : 'https', 'gui' : 1 }
-NeoBundle 'thinca/vim-visualstar',         { 'type__protocol' : 'https' }
-NeoBundle 'tomasr/molokai',                { 'type__protocol' : 'https' }
-NeoBundle 'tpope/vim-fugitive',            { 'type__protocol' : 'https' }
-NeoBundle 'tpope/vim-repeat',              { 'type__protocol' : 'https' }
-NeoBundle 'tpope/vim-surround',            { 'type__protocol' : 'https' }
-NeoBundle 'vim-jp/vimdoc-ja',              { 'type__protocol' : 'https' }
-NeoBundle 'w0ng/vim-hybrid',               { 'type__protocol' : 'https' }
 
-" vim-scripts repos
-NeoBundle 'CmdlineComplete',               { 'type__protocol' : 'https' }
-NeoBundle 'YankRing.vim',                  { 'type__protocol' : 'https' }
-NeoBundle 'verilog_systemverilog.vim',     { 'type__protocol' : 'https' }
+"---- vimproc ----
+NeoBundle     'Shougo/vimproc.vim', {
+    \   'type__protocol' : 'https',
+    \   'build' : {
+    \       'cygwin' : 'make -f make_cygwin.mak',
+    \       'mac'    : 'make -f make_mac.mak',
+    \       'unix'   : 'make -f make_unix.mak' }}
 
-" non github repos
+
+"---- Unite ----
+NeoBundleLazy 'Shougo/unite.vim', {
+    \   'type__protocol' : 'https',
+    \   'autoload' : {
+    \       'commands' : [
+    \           { 'name' : 'Unite',
+    \             'complete' : 'customlist,unite#complete_source' },
+    \           { 'name' : 'UniteWithBufferDir',
+    \             'complete' : 'customlist,unite#complete_source' } ]}}
+
+NeoBundle     'Shougo/neomru.vim', {
+    \   'type__protocol' : 'https' }
+
+NeoBundleLazy 'Shougo/unite-help', {
+    \   'type__protocol' : 'https' }
+
+NeoBundleLazy 'Shougo/vimfiler.vim', {
+    \   'type__protocol' : 'https',
+    \   'depends' : 'Shougo/unite.vim',
+    \   'autoload' : {
+    \       'explorer' : 1,
+    \       'mappings' : '<Plug>(vimfiler_',
+    \       'commands' : [
+    \           { 'name' : 'VimFiler',
+    \             'complete' : 'customlist,vimfiler#complete' },
+    \           { 'name' : 'VimFilerBufferDir',
+    \             'complete' : 'customlist,vimfiler#complete' },
+    \           { 'name' : 'VimFilerExplorer',
+    \             'complete' : 'customlist,vimfiler#complete' },
+    \           { 'name' : 'VimFilerTab',
+    \             'complete' : 'customlist,vimfiler#complete' } ]}}
+
+
+"---- Syntax Highlighting ----
+NeoBundleLazy 'vim-scripts/verilog_systemverilog.vim', {
+    \   'type__protocol' : 'https',
+    \   'autoload' : {
+    \       'filetypes' : 'verilog_systemverilog' }}
+
+NeoBundleLazy 'Kocha/vim-systemc', {
+    \   'type__protocol' : 'https',
+    \   'autoload' : {
+    \       'filetypes' : 'cpp' }}
+
+NeoBundleLazy 'amal-khailtash/vim-xdc-syntax', {
+    \   'type__protocol' : 'https',
+    \   'autoload' : {
+    \       'filetypes' : 'xdc' }}
+
+NeoBundleLazy 'davidoc/taskpaper.vim', {
+    \   'type__protocol' : 'https',
+    \   'autoload' : {
+    \       'filetypes' : 'taskpaper' }}
+
+
+"---- Color Scheme ----
+NeoBundle     'godlygeek/csapprox', {
+    \   'type__protocol' : 'https' }
+
+NeoBundle     'tomasr/molokai', {
+    \   'type__protocol' : 'https' }
+
+NeoBundle     'jpo/vim-railscasts-theme', {
+    \   'type__protocol' : 'https' }
+
+NeoBundle     'nanotech/jellybeans.vim', {
+    \   'type__protocol' : 'https' }
+
+NeoBundle     'w0ng/vim-hybrid', {
+    \   'type__protocol' : 'https' }
+
+
+"---- Others ----
+NeoBundle     'Lokaltog/vim-powerline', {
+    \   'type__protocol' : 'https' }
+
+NeoBundle     'tpope/vim-fugitive', {
+    \   'type__protocol' : 'https' }
+
+NeoBundleLazy 'jezcope/vim-align', {
+    \   'type__protocol' : 'https',
+    \   'autoload' : {
+    \       'commands' : 'Align' }}
+
+NeoBundleLazy 't9md/vim-textmanip', {
+    \   'type__protocol' : 'https',
+    \   'autoload' : {
+    \       'mappings' : [
+    \           [ 'xn', '<Plug>(textmanip-duplicate-down)' ],
+    \           [ 'xn', '<Plug>(textmanip-duplicate-up)'   ],
+    \           [ 'x' , '<Plug>(textmanip-move-down)'      ],
+    \           [ 'x' , '<Plug>(textmanip-move-up)'        ] ]}}
+
+NeoBundle     'tpope/vim-surround', {
+    \   'type__protocol' : 'https' }
+
+NeoBundle     'tpope/vim-repeat', {
+    \   'type__protocol' : 'https' }
+
+NeoBundleLazy 'thinca/vim-visualstar', {
+    \   'type__protocol' : 'https',
+    \   'autoload' : {
+    \       'mappings' : [
+    \           '<Plug>(visualstar-*)',
+    \           '<Plug>(visualstar-#)' ]}}
+
+NeoBundle     'Lokaltog/vim-easymotion', {
+    \   'type__protocol' : 'https' }
+
+NeoBundle     'Shougo/neocomplcache.vim', {
+    \   'type__protocol' : 'https' }
+
+NeoBundleLazy 'Shougo/neosnippet.vim', {
+    \   'type__protocol' : 'https',
+    \   'depends' : 'Shougo/neosnippet-snippets',
+    \   'aoutload' : {
+    \       'insert' : 1,
+    \       'filetypes' : 'snippet',
+    \       'unite_sources' : [
+    \           'neosnippet', 'neosnippet/user', 'neosnippet/runtime' ]}}
+
+NeoBundleLazy 'Shougo/vimshell.vim', {
+    \   'type__protocol' : 'https',
+    \   'autoload' : {
+    \       'commands' : [
+    \       { 'name' : 'VimShell',
+    \         'complete' : 'customlist,vimshell#complete'},
+    \       { 'name' : 'VimShellBufferDir',
+    \         'complete' : 'customlist,vimshell#complete'},
+    \       { 'name' : 'VimShellPop',
+    \         'complete' : 'customlist,vimshell#complete'},
+    \       { 'name' : 'VimShellExecute',
+    \         'complete' : 'customlist,vimshell#complete'},
+    \       { 'name' : 'VimShellInteractive',
+    \         'complete' : 'customlist,vimshell#complete'},
+    \       { 'name' : 'VimShellCreate',
+    \         'complete' : 'customlist,vimshell#complete'},
+    \       { 'name' : 'VimShellTerminal',
+    \         'complete' : 'customlist,vimshell#complete'} ]}}
+
+NeoBundleLazy 'thinca/vim-fontzoom', {
+    \   'type__protocol' : 'https',
+    \   'gui' : 1,
+    \   'autoload' : {
+    \       'mappings' : [
+    \       [ 'n', '<Plug>(fontzoom-larger)'  ],
+    \       [ 'n', '<Plug>(fontzoom-smaller)' ] ]}}
+
+NeoBundle     'vim-scripts/CmdlineComplete', {
+    \   'type__protocol' : 'https' }
+
+NeoBundle     'vim-scripts/YankRing.vim', {
+    \   'type__protocol' : 'https' }
+
+NeoBundleLazy 'vim-jp/vimdoc-ja', {
+    \   'type__protocol' : 'https',
+    \   'autoload' : {
+    \       'filetypes' : 'help' }}
 
 " Installation check
 NeoBundleCheck
@@ -101,7 +231,7 @@ filetype plugin indent on
 
 " }}}
 "=============================================================================
-"==== easymotion ====                                                      {{{
+"==== vim-easymotion ====                                                  {{{
 
 let g:EasyMotion_leader_key = ',,'
 
@@ -122,7 +252,7 @@ endif
 
 " }}}
 "=============================================================================
-"==== neocomplcache ====                                                   {{{
+"==== neocomplcache.vim ====                                               {{{
 
 " Use neocomplcache
 let g:neocomplcache_enable_at_startup = 1
@@ -132,7 +262,7 @@ let g:neocomplcache_enable_smart_case = 1
 
 " }}}
 "=============================================================================
-"==== neosnippet ====                                                      {{{
+"==== neosnippet.vim ====                                                  {{{
 
 " Path to user-defined snippet files
 let g:neosnippet#snippets_directory = '~/.snippets'
@@ -161,7 +291,7 @@ endif
 
 " }}}
 "=============================================================================
-"==== unite ====                                                           {{{
+"==== unite.vim ====                                                       {{{
 
 " Start in insert mode
 let g:unite_enable_start_insert=1
@@ -238,7 +368,7 @@ endfunction
 
 " }}}
 "=============================================================================
-"==== vimfiler ====                                                        {{{
+"==== vimfiler.vim ====                                                    {{{
 
 " Use vimfiler as a default filer
 let g:vimfiler_as_default_explorer = 1
@@ -268,7 +398,7 @@ nnoremap <silent> ,t :<C-u>VimFilerExplorer<CR>
 
 " }}}
 "=============================================================================
-"==== vimshell ====                                                        {{{
+"==== vimshell.vim ====                                                    {{{
 
 " Set encoding UTF-8 when a cygwin command is executed
 if has('win32') || has('win64')
@@ -296,7 +426,7 @@ endfunction
 
 " }}}
 "=============================================================================
-"==== textmanip ====                                                       {{{
+"==== vim-textmanip ====                                                   {{{
 
 " Key mappings
 xmap <Space>d <Plug>(textmanip-duplicate-down)
@@ -309,7 +439,17 @@ xmap <C-k> <Plug>(textmanip-move-up)
 
 " }}}
 "=============================================================================
-"==== fugitive ====                                                        {{{
+"==== vim-fontzoom ====                                                    {{{
+
+let g:fontzoom_no_default_key_mappings = 1
+
+"Key mappings
+nmap + <Plug>(fontzoom-larger)
+nmap - <Plug>(fontzoom-smaller)
+
+" }}}
+"=============================================================================
+"==== vim-fugitive ====                                                    {{{
 
 " Show branch name on Status Line
 "set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
@@ -326,7 +466,7 @@ nnoremap ,ge :<C-u>Gedit<CR>
 
 " }}}
 "=============================================================================
-"==== visualstar ====                                                      {{{
+"==== vim-visualstar ====                                                  {{{
 
 " Search the text, but cursor don't move to next match
 map * <Plug>(visualstar-*)Nzz
@@ -334,7 +474,7 @@ map # <Plug>(visualstar-#)Nzz
 
 " }}}
 "=============================================================================
-"==== YankRing ====                                                        {{{
+"==== YankRing.vim ====                                                    {{{
 
 let g:yankring_history_dir   = expand('$HOME')
 let g:yankring_history_file  = '.yankring_history'
