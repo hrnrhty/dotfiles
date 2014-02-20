@@ -51,24 +51,25 @@ NeoBundle 'Shougo/neobundle.vim',          { 'type__protocol' : 'https' }
 " Use NeoBundle standard recipes
 NeoBundle 'Shougo/neobundle-vim-recipes',  { 'type__protocol' : 'https' }
 
-" Original repos on github
+" Repos on github
 NeoBundle 'Kocha/vim-systemc',             { 'type__protocol' : 'https' }
 NeoBundle 'Lokaltog/vim-easymotion',       { 'type__protocol' : 'https' }
 NeoBundle 'Lokaltog/vim-powerline',        { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/neocomplcache',          { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/neosnippet',             { 'type__protocol' : 'https' }
+NeoBundle 'Shougo/neocomplcache.vim',      { 'type__protocol' : 'https' }
+NeoBundle 'Shougo/neomru.vim',             { 'type__protocol' : 'https' }
+NeoBundle 'Shougo/neosnippet.vim',         { 'type__protocol' : 'https' }
 NeoBundle 'Shougo/neosnippet-snippets',    { 'type__protocol' : 'https' }
 NeoBundle 'Shougo/unite.vim',              { 'type__protocol' : 'https' }
 NeoBundle 'Shougo/unite-help',             { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/vimfiler',               { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/vimproc',                { 'type__protocol' : 'https',
+NeoBundle 'Shougo/vimfiler.vim',           { 'type__protocol' : 'https' }
+NeoBundle 'Shougo/vimproc.vim',            { 'type__protocol' : 'https',
                                          \   'build' : {
                                          \       'cygwin'  : 'make -f make_cygwin.mak',
                                          \       'mac'     : 'make -f make_mac.mak',
                                          \       'unix'    : 'make -f make_unix.mak'
                                          \   }
                                          \ }
-NeoBundle 'Shougo/vimshell',               { 'type__protocol' : 'https' }
+NeoBundle 'Shougo/vimshell.vim',           { 'type__protocol' : 'https' }
 NeoBundle 'amal-khailtash/vim-xdc-syntax', { 'type__protocol' : 'https' }
 NeoBundle 'davidoc/taskpaper.vim',         { 'type__protocol' : 'https' }
 NeoBundle 'godlygeek/csapprox',            { 'type__protocol' : 'https' }
