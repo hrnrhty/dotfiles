@@ -35,7 +35,7 @@ set fileencodings=iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,utf-8,ucs-bom,eu
 
 " }}}
 "=============================================================================
-"==== NeoBundle ====                                                       {{{
+"==== neobundle.vim ====                                                   {{{
 
 filetype off
 
@@ -105,7 +105,7 @@ filetype plugin indent on
 
 " }}}
 "=============================================================================
-"==== easymotion ====                                                      {{{
+"==== vim-easymotion ====                                                  {{{
 
 let g:EasyMotion_leader_key = ',,'
 
@@ -126,7 +126,7 @@ endif
 
 " }}}
 "=============================================================================
-"==== neocomplcache ====                                                   {{{
+"==== neocomplcache.vim ====                                               {{{
 
 " Use neocomplcache
 let g:neocomplcache_enable_at_startup = 1
@@ -136,7 +136,7 @@ let g:neocomplcache_enable_smart_case = 1
 
 " }}}
 "=============================================================================
-"==== neosnippet ====                                                      {{{
+"==== neosnippet.vim ====                                                  {{{
 
 " Path to user-defined snippet files
 let g:neosnippet#snippets_directory = '~/.snippets'
@@ -242,7 +242,7 @@ endfunction
 
 " }}}
 "=============================================================================
-"==== vimfiler ====                                                        {{{
+"==== vimfiler.vim ====                                                    {{{
 
 " Use vimfiler as a default filer
 let g:vimfiler_as_default_explorer = 1
@@ -272,7 +272,7 @@ nnoremap <silent> ,t :<C-u>VimFilerExplorer<CR>
 
 " }}}
 "=============================================================================
-"==== vimshell ====                                                        {{{
+"==== vimshell.vim ====                                                    {{{
 
 " Set encoding UTF-8 when a cygwin command is executed
 if has('win32') || has('win64')
@@ -300,7 +300,7 @@ endfunction
 
 " }}}
 "=============================================================================
-"==== textmanip ====                                                       {{{
+"==== vim-textmanip ====                                                   {{{
 
 " Key mappings
 xmap <Space>d <Plug>(textmanip-duplicate-down)
@@ -323,7 +323,7 @@ nmap - <Plug>(fontzoom-smaller)
 
 " }}}
 "=============================================================================
-"==== fugitive ====                                                        {{{
+"==== vim-fugitive ====                                                    {{{
 
 " Show branch name on Status Line
 "set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
@@ -340,7 +340,7 @@ nnoremap ,ge :<C-u>Gedit<CR>
 
 " }}}
 "=============================================================================
-"==== visualstar ====                                                      {{{
+"==== vim-visualstar ====                                                  {{{
 
 " Search the text, but cursor don't move to next match
 map * <Plug>(visualstar-*)Nzz
@@ -348,7 +348,7 @@ map # <Plug>(visualstar-#)Nzz
 
 " }}}
 "=============================================================================
-"==== YankRing ====                                                        {{{
+"==== YankRing.vim ====                                                    {{{
 
 let g:yankring_history_dir   = expand('$HOME')
 let g:yankring_history_file  = '.yankring_history'
