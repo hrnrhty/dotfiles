@@ -46,50 +46,53 @@ endif
 call neobundle#rc(expand('~/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
-NeoBundle 'Shougo/neobundle.vim',          { 'type__protocol' : 'https' }
+NeoBundle     'Shougo/neobundle.vim',          { 'type__protocol' : 'https' }
 
 " Use NeoBundle standard recipes
-NeoBundle 'Shougo/neobundle-vim-recipes',  { 'type__protocol' : 'https' }
+NeoBundle     'Shougo/neobundle-vim-recipes',  { 'type__protocol' : 'https' }
 
 " Repos on github
-NeoBundle 'Kocha/vim-systemc',             { 'type__protocol' : 'https' }
-NeoBundle 'Lokaltog/vim-easymotion',       { 'type__protocol' : 'https' }
-NeoBundle 'Lokaltog/vim-powerline',        { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/neocomplcache.vim',      { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/neomru.vim',             { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/neosnippet.vim',         { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/neosnippet-snippets',    { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/unite.vim',              { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/unite-help',             { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/vimfiler.vim',           { 'type__protocol' : 'https' }
-NeoBundle 'Shougo/vimproc.vim',            { 'type__protocol' : 'https',
-                                         \   'build' : {
-                                         \       'cygwin'  : 'make -f make_cygwin.mak',
-                                         \       'mac'     : 'make -f make_mac.mak',
-                                         \       'unix'    : 'make -f make_unix.mak'
-                                         \   }
-                                         \ }
-NeoBundle 'Shougo/vimshell.vim',           { 'type__protocol' : 'https' }
-NeoBundle 'amal-khailtash/vim-xdc-syntax', { 'type__protocol' : 'https' }
-NeoBundle 'davidoc/taskpaper.vim',         { 'type__protocol' : 'https' }
-NeoBundle 'godlygeek/csapprox',            { 'type__protocol' : 'https' }
-NeoBundle 'jezcope/vim-align',             { 'type__protocol' : 'https' }
-NeoBundle 'jpo/vim-railscasts-theme',      { 'type__protocol' : 'https' }
-NeoBundle 'nanotech/jellybeans.vim',       { 'type__protocol' : 'https' }
-NeoBundle 't9md/vim-textmanip',            { 'type__protocol' : 'https' }
-NeoBundle 'thinca/vim-fontzoom',           { 'type__protocol' : 'https', 'gui' : 1 }
-NeoBundle 'thinca/vim-visualstar',         { 'type__protocol' : 'https' }
-NeoBundle 'tomasr/molokai',                { 'type__protocol' : 'https' }
-NeoBundle 'tpope/vim-fugitive',            { 'type__protocol' : 'https' }
-NeoBundle 'tpope/vim-repeat',              { 'type__protocol' : 'https' }
-NeoBundle 'tpope/vim-surround',            { 'type__protocol' : 'https' }
-NeoBundle 'vim-jp/vimdoc-ja',              { 'type__protocol' : 'https' }
-NeoBundle 'w0ng/vim-hybrid',               { 'type__protocol' : 'https' }
+NeoBundle     'Kocha/vim-systemc',             { 'type__protocol' : 'https' }
+NeoBundle     'Lokaltog/vim-easymotion',       { 'type__protocol' : 'https' }
+NeoBundle     'Lokaltog/vim-powerline',        { 'type__protocol' : 'https' }
+NeoBundle     'Shougo/neocomplcache.vim',      { 'type__protocol' : 'https' }
+NeoBundle     'Shougo/neomru.vim',             { 'type__protocol' : 'https' }
+NeoBundle     'Shougo/neosnippet.vim',         { 'type__protocol' : 'https' }
+NeoBundle     'Shougo/neosnippet-snippets',    { 'type__protocol' : 'https' }
+NeoBundle     'Shougo/unite.vim',              { 'type__protocol' : 'https' }
+NeoBundle     'Shougo/unite-help',             { 'type__protocol' : 'https' }
+NeoBundle     'Shougo/vimfiler.vim',           { 'type__protocol' : 'https' }
+NeoBundle     'Shougo/vimproc.vim',            { 'type__protocol' : 'https',
+  \ 'build' : {
+  \     'cygwin' : 'make -f make_cygwin.mak',
+  \     'mac'    : 'make -f make_mac.mak',
+  \     'unix'   : 'make -f make_unix.mak' }}
+NeoBundle     'Shougo/vimshell.vim',           { 'type__protocol' : 'https' }
+NeoBundle     'amal-khailtash/vim-xdc-syntax', { 'type__protocol' : 'https' }
+NeoBundle     'davidoc/taskpaper.vim',         { 'type__protocol' : 'https' }
+NeoBundle     'godlygeek/csapprox',            { 'type__protocol' : 'https' }
+NeoBundle     'jezcope/vim-align',             { 'type__protocol' : 'https' }
+NeoBundle     'jpo/vim-railscasts-theme',      { 'type__protocol' : 'https' }
+NeoBundle     'nanotech/jellybeans.vim',       { 'type__protocol' : 'https' }
+NeoBundle     't9md/vim-textmanip',            { 'type__protocol' : 'https' }
+NeoBundleLazy 'thinca/vim-fontzoom',           { 'type__protocol' : 'https',
+  \ 'gui' : 1,
+  \ 'autoload' : {
+  \     'mappings' : [
+  \     [ 'n', '<Plug>(fontzoom-larger)'  ],
+  \     [ 'n', '<Plug>(fontzoom-smaller)' ] ]}}
+NeoBundle     'thinca/vim-visualstar',         { 'type__protocol' : 'https' }
+NeoBundle     'tomasr/molokai',                { 'type__protocol' : 'https' }
+NeoBundle     'tpope/vim-fugitive',            { 'type__protocol' : 'https' }
+NeoBundle     'tpope/vim-repeat',              { 'type__protocol' : 'https' }
+NeoBundle     'tpope/vim-surround',            { 'type__protocol' : 'https' }
+NeoBundle     'vim-jp/vimdoc-ja',              { 'type__protocol' : 'https' }
+NeoBundle     'w0ng/vim-hybrid',               { 'type__protocol' : 'https' }
 
 " vim-scripts repos
-NeoBundle 'CmdlineComplete',               { 'type__protocol' : 'https' }
-NeoBundle 'YankRing.vim',                  { 'type__protocol' : 'https' }
-NeoBundle 'verilog_systemverilog.vim',     { 'type__protocol' : 'https' }
+NeoBundle     'CmdlineComplete',               { 'type__protocol' : 'https' }
+NeoBundle     'YankRing.vim',                  { 'type__protocol' : 'https' }
+NeoBundle     'verilog_systemverilog.vim',     { 'type__protocol' : 'https' }
 
 " non github repos
 
@@ -162,7 +165,7 @@ endif
 
 " }}}
 "=============================================================================
-"==== unite ====                                                           {{{
+"==== unite.vim ====                                                       {{{
 
 " Start in insert mode
 let g:unite_enable_start_insert=1
@@ -307,6 +310,16 @@ nmap <Space>D <Plug>(textmanip-duplicate-up)
 
 xmap <C-j> <Plug>(textmanip-move-down)
 xmap <C-k> <Plug>(textmanip-move-up)
+
+" }}}
+"=============================================================================
+"==== vim-fontzoom ====                                                    {{{
+
+let g:fontzoom_no_default_key_mappings = 1
+
+"Key mappings
+nmap + <Plug>(fontzoom-larger)
+nmap - <Plug>(fontzoom-smaller)
 
 " }}}
 "=============================================================================
