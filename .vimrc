@@ -214,9 +214,6 @@ NeoBundleLazy 'thinca/vim-fontzoom', {
 NeoBundle     'vim-scripts/CmdlineComplete', {
     \   'type__protocol' : 'https' }
 
-NeoBundle     'vim-scripts/YankRing.vim', {
-    \   'type__protocol' : 'https' }
-
 NeoBundleLazy 'vim-jp/vimdoc-ja', {
     \   'type__protocol' : 'https',
     \   'autoload' : {
@@ -475,19 +472,6 @@ nnoremap ,ge :<C-u>Gedit<CR>
 " Search the text, but cursor don't move to next match
 map * <Plug>(visualstar-*)Nzz
 map # <Plug>(visualstar-#)Nzz
-
-" }}}
-"=============================================================================
-"==== YankRing.vim ====                                                    {{{
-
-let g:yankring_history_dir   = expand('$HOME')
-let g:yankring_history_file  = '.yankring_history'
-let g:yankring_max_history   = 10
-let g:yankring_window_height = 13
-let g:yankring_enabled       = 0
-
-nnoremap <silent> ,ys :<C-u>YRShow<CR>
-nnoremap <silent> ,yt :<C-u>YRToggle<CR>
 
 " }}}
 "=============================================================================
