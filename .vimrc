@@ -125,9 +125,6 @@ NeoBundle     'godlygeek/csapprox', {
 NeoBundle     'tomasr/molokai', {
     \   'type__protocol' : 'https' }
 
-"NeoBundle     'jpo/vim-railscasts-theme', {
-"    \   'type__protocol' : 'https' }
-
 NeoBundle     'nanotech/jellybeans.vim', {
     \   'type__protocol' : 'https' }
 
@@ -266,8 +263,8 @@ let g:neosnippet#snippets_directory = '~/.snippets'
 
 " Plugin key-mappings
 imap <expr><C-k> neosnippet#expandable() ?
- \   "\<Plug>(neosnippet_expand)"            :
- \    pumvisible() ? "\<C-n>" : "\<C-k>"
+\    "\<Plug>(neosnippet_expand)"            :
+\    pumvisible() ? "\<C-n>" : "\<C-k>"
 
 smap <expr><C-k> neosnippet#expandable() ?
 \    "\<Plug>(neosnippet_expand)"            :
