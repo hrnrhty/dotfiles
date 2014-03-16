@@ -31,7 +31,7 @@ else
 endif
 
 " File encoding Detection
-set fileencodings=iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,utf-8,ucs-bom,eucjp-ms,cp932
+set fileencodings=iso-2022-jp-3,iso-2022-jp,utf-8,euc-jisx0213,euc-jp,ucs-bom,eucjp-ms,cp932
 
 " }}}
 "=============================================================================
