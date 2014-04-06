@@ -12,7 +12,7 @@
 #==== Script settings ====                                                 {{{
 
 if [ -z "$VERSION"] ; then
-    VERSION="0.1.5"
+    VERSION="0.1.6"
 fi
 
 if [ -z "$DOTFILES"] ; then

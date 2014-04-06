@@ -290,6 +290,9 @@ endif
 " Start in insert mode
 let g:unite_enable_start_insert=1
 
+" Enable unite-source-hisotry/yank
+let g:unite_source_history_yank_enable = 1
+
 " unite prefix key
 nnoremap [unite] <Nop>
 nmap ; [unite]
@@ -326,6 +329,9 @@ nnoremap <silent> [unite]s :<C-u>Unite source<CR>
 
 " Tab List
 nnoremap <silent> [unite]t :<C-u>Unite -no-start-insert tab<CR>
+
+" Yank History
+nnoremap <silent> [unite]y :<C-u>Unite history/yank<CR>
 
 augroup unite_settings
     autocmd!
