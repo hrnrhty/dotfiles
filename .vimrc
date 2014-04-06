@@ -133,7 +133,7 @@ NeoBundle     'w0ng/vim-hybrid', {
 
 
 "---- Others ----
-NeoBundle     'Lokaltog/vim-powerline', {
+NeoBundle     'itchyny/lightline.vim', {
     \   'type__protocol' : 'https' }
 
 NeoBundle     'tpope/vim-fugitive', {
@@ -231,18 +231,98 @@ let g:EasyMotion_leader_key = ',,'
 
 " }}}
 "=============================================================================
-"==== vim-powerline ====                                                   {{{
+"==== lightline.vim ====                                                   {{{
 
-if has('gui_running')
-    " Use custom icons and arrows. Requires a patched font.
-    let g:Powerline_symbols = 'fancy'
-elseif has('unix') && &term=='xterm-256color'
-    " Use custom icons and arrows. Requires a patched font.
-    let g:Powerline_symbols = 'fancy'
-else
-    " Don't use any special characters.
-    let g:Powerline_symbols = 'compatible'
+let g:lightline = {
+\   'colorscheme':  'default',
+\   'active': {
+\       'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
+\       'right': [ ['lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ], },
+\   'inactive': {
+\       'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
+\       'right': [ ['lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ], },
+\   'component': {
+\       'lineinfo': "\u2b61 %3l:%-2v", },
+\   'component_function': {
+\       'fugitive': 'MyFugitive',
+\       'filename': 'MyFilename',
+\       'fileformat': 'MyFileformat',
+\       'filetype': 'MyFiletype',
+\       'fileencoding': 'MyFileencoding',
+\       'mode': 'MyMode', },
+\   'separator': {
+\       'left': "\u2b80", 'right': "\u2b82", },
+\   'subseparator': {
+\       'left': "\u2b81", 'right': "\u2b83", },
+\   }
+
+let g:romark = "\u2b64"
+let g:mark = "\u2b60 "
+if has('gui_running') && &term != 'xterm-256color'
+    let g:romark = 'RO'
+    let g:mark = ''
+    let g:lightline = {
+    \   'component': {
+    \       'lineinfo': '%3l:%-2v', },
+    \   'separator': {
+    \       'left': '', 'right': '', },
+    \   'subseparator': {
+    \       'left': '|', 'right': '|', },
+    \   }
 endif
+
+function! MyModified()
+    return &ft =~ 'help' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+endfunction
+
+function! MyReadonly()
+    return &ft !~? 'help' && &readonly ? g:romark : ''
+endfunction
+
+function! MyFilename()
+    let fname = expand('%:t')
+    return &ft == 'vimfiler' ? vimfiler#get_status_string() :
+    \   &ft == 'unite' ? unite#get_status_string() :
+    \   &ft == 'vimshell' ? vimshell#get_status_string() :
+    \   ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+    \   ('' != fname ? fname : '[No Name]') .
+    \   ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction
+
+function! MyFugitive()
+    try
+        if &ft !~? 'vimfiler' && exists('*fugitive#head')
+            let _ = fugitive#head()
+            return strlen(_) ? g:mark._ : ''
+        endif
+        catch
+    endtry
+    return ''
+endfunction
+
+function! MyFileformat()
+    return winwidth(0) > 70 ? &fileformat : ''
+endfunction
+
+function! MyFiletype()
+    return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype : 'no ft') : ''
+endfunction
+
+function! MyFileencoding()
+    return winwidth(0) > 70 ? (strlen(&fenc) ? &fenc : &enc) : ''
+endfunction
+
+function! MyMode()
+    let fname = expand('%:t')
+    return &ft == 'unite' ? 'unite' :
+    \   &ft == 'vimfiler' ? 'vimfiler' :
+    \   &ft == 'vimshell' ? 'vimshell' :
+    \   winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0
 
 " }}}
 "=============================================================================
