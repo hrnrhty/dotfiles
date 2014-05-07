@@ -112,11 +112,6 @@ NeoBundleLazy 'amal-khailtash/vim-xdc-syntax', {
     \   'autoload' : {
     \       'filetypes' : 'xdc' }}
 
-NeoBundleLazy 'davidoc/taskpaper.vim', {
-    \   'type__protocol' : 'https',
-    \   'autoload' : {
-    \       'filetypes' : 'taskpaper' }}
-
 
 "---- Color Scheme ----
 NeoBundle     'godlygeek/csapprox', {
