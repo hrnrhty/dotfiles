@@ -211,6 +211,9 @@ NeoBundleLazy 'vim-jp/vimdoc-ja', {
     \   'autoload' : {
     \       'filetypes' : 'help' }}
 
+NeoBundle     'terryma/vim-multiple-cursors', {
+    \   'type__protocol' : 'https' }
+
 " Installation check
 NeoBundleCheck
 
@@ -502,6 +505,15 @@ function! s:vimshell_settings()
     " Hide vimshell buffer by ESC
     nmap <buffer> <ESC><ESC><ESC> <Plug>(vimshell_hide)
 endfunction
+
+" }}}
+"=============================================================================
+"==== vim-multiple-cursors ====                                            {{{
+
+" Key mappings
+let g:multi_cursor_use_default_mapping = 1
+let g:multi_cursor_start_key = '<C-m>'
+
 
 " }}}
 "=============================================================================
