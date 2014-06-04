@@ -131,6 +131,9 @@ NeoBundle     'itchyny/lightline.vim', {
 NeoBundle     'tpope/vim-fugitive', {
     \   'type__protocol' : 'https' }
 
+NeoBundle     'vim-scripts/vcscommand.vim', {
+    \   'type__protocol' : 'https' }
+
 NeoBundleLazy 'jezcope/vim-align', {
     \   'type__protocol' : 'https',
     \   'autoload' : {
