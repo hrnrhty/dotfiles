@@ -67,14 +67,8 @@ NeoBundle     'Shougo/vimproc.vim', {
 
 
 "---- Unite ----
-NeoBundleLazy 'Shougo/unite.vim', {
-    \   'type__protocol' : 'https',
-    \   'autoload' : {
-    \       'commands' : [
-    \           { 'name' : 'Unite',
-    \             'complete' : 'customlist,unite#complete_source' },
-    \           { 'name' : 'UniteWithBufferDir',
-    \             'complete' : 'customlist,unite#complete_source' } ]}}
+NeoBundle     'Shougo/unite.vim', {
+    \   'type__protocol' : 'https' }
 
 NeoBundle     'Shougo/neomru.vim', {
     \   'type__protocol' : 'https' }
