@@ -11,6 +11,9 @@
 
 set nocompatible
 
+" Leader key
+let mapleader="]"
+
 " }}}
 "=============================================================================
 "==== Encoding ====                                                        {{{
@@ -214,6 +217,9 @@ NeoBundleLazy 'vim-jp/vimdoc-ja', {
 NeoBundle     'terryma/vim-multiple-cursors', {
     \   'type__protocol' : 'https' }
 
+NeoBundle     'scrooloose/syntastic', {
+    \   'type__protocol' : 'https' }
+
 " Installation check
 NeoBundleCheck
 
@@ -235,7 +241,7 @@ let g:lightline = {
 \   'colorscheme':  'default',
 \   'active': {
 \       'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
-\       'right': [ ['lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ], },
+\       'right': [ [ 'syntastic', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ], },
 \   'inactive': {
 \       'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
 \       'right': [ ['lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ], },
@@ -248,6 +254,10 @@ let g:lightline = {
 \       'filetype': 'MyFiletype',
 \       'fileencoding': 'MyFileencoding',
 \       'mode': 'MyMode', },
+\   'component_expand': {
+\       'syntastic': 'SyntasticStatuslineFlag', },
+\   'component_type': {
+\       'syntastic': 'error', },
 \   'separator': {
 \       'left': "\u2b80", 'right': "\u2b82", },
 \   'subseparator': {
@@ -318,6 +328,32 @@ function! MyMode()
     \   winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
+augroup AutoSyntastic
+    autocmd!
+    autocmd BufWritePost *.c,*.cpp,*.rb call s:syntastic()
+augroup END
+
+let s:SyntaxCheckEnable = 0
+
+function! s:syntastic()
+    if s:SyntaxCheckEnable == 1
+        SyntasticCheck
+        call lightline#update()
+    endif
+endfunction
+
+function! s:SyntaxCheckToggle()
+    if s:SyntaxCheckEnable == 0
+        let s:SyntaxCheckEnable = 1
+        echo 'Syntax check enabled'
+    else
+        let s:SyntaxCheckEnable = 0
+        echo 'Syntax check disabled'
+    endif
+endfunction
+
+nnoremap <silent> <Leader>s :<C-u>call <SID>SyntaxCheckToggle()<CR>
+
 let g:unite_force_overwrite_statusline = 0
 let g:vimfiler_force_overwrite_statusline = 0
 let g:vimshell_force_overwrite_statusline = 0
@@ -360,6 +396,13 @@ smap <expr><TAB> neosnippet#jumpable() ?
 if has('conceal')
     set conceallevel=2 concealcursor=i
 endif
+
+" }}}
+"=============================================================================
+"==== syntastic ====                                                       {{{
+
+" syntastic only checks when the user calls :SyntasticCheck
+let g:syntastic_mode_map = { 'mode': 'passive' }
 
 " }}}
 "=============================================================================
@@ -591,9 +634,6 @@ vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
 " }}}
 "=============================================================================
 "==== Key Mappings ====                                                    {{{
-
-" Leader key
-let mapleader="]"
 
 " Open next buffer
 nnoremap <C-n> :<C-u>bnext<CR>
