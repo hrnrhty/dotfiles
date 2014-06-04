@@ -94,11 +94,6 @@ NeoBundleLazy 'Shougo/vimfiler.vim', {
 
 
 "---- Syntax Highlighting ----
-NeoBundleLazy 'vim-scripts/verilog_systemverilog.vim', {
-    \   'type__protocol' : 'https',
-    \   'autoload' : {
-    \       'filetypes' : 'verilog_systemverilog' }}
-
 NeoBundleLazy 'Kocha/vim-systemc', {
     \   'type__protocol' : 'https',
     \   'autoload' : {
@@ -327,7 +322,7 @@ endfunction
 
 augroup AutoSyntastic
     autocmd!
-    autocmd BufWritePost *.c,*.cpp,*.rb call s:syntastic()
+    autocmd BufWritePost *.v,*.vh,*.sv,*.c,*.cpp,*.rb call s:syntastic()
 augroup END
 
 let s:SyntaxCheckEnable = 0
