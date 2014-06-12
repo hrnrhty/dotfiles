@@ -435,7 +435,7 @@ nnoremap <silent> [unite]l :<C-u>Unite line<CR>
 nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
 
 " Register List
-nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=file_rec file_rec/async file/new directory/new<CR>
 
 " unite-source list
 nnoremap <silent> [unite]s :<C-u>Unite source<CR>
