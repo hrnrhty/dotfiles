@@ -429,7 +429,7 @@ nnoremap <silent> [unite]g :<C-u>Unite -no-quit -no-start-insert grep<CR>
 nnoremap <silent> [unite]h :<C-u>Unite help<CR>
 
 " unite-line
-nnoremap <silent> [unite]l :<C-u>Unite line<CR>
+nnoremap <silent> [unite]l :<C-u>Unite -no-quit line<CR>
 
 " Recent Files List
 nnoremap <silent> [unite]m :<C-u>Unite file_mru<CR>
@@ -882,6 +882,11 @@ set timeout ttimeoutlen=100
 " .m files are Objective-C, not Matlab
 let g:filetype_m = 'objc'
 
+" Detect .vh files as Verilog Header
+augroup detect_vh_file
+    autocmd!
+    autocmd bufNewFile,bufRead *.vh setfiletype verilog
+augroup END
 
 " }}}
 "=============================================================================
