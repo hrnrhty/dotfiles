@@ -547,8 +547,6 @@ endfunction
 
 " Key mappings
 let g:multi_cursor_use_default_mapping = 1
-let g:multi_cursor_start_key = '<C-m>'
-
 
 " }}}
 "=============================================================================
@@ -626,12 +624,6 @@ vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
 " }}}
 "=============================================================================
 "==== Key Mappings ====                                                    {{{
-
-" Open next buffer
-nnoremap <C-n> :<C-u>bnext<CR>
-
-" Open previous buffer
-nnoremap <C-p> :<C-u>bprevious<CR>
 
 " Unhighlight searched phrases
 nnoremap <silent> ,/ :<C-u>nohlsearch<CR>:<C-u>redraw!<CR>
