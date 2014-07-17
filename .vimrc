@@ -21,17 +21,11 @@ let mapleader="]"
 " Vim internal encoding
 set encoding=utf-8
 
-" Default file encoding and file format
-if has('win32') || has('win64')
-    set fileencoding=cp932
-    set fileformat=dos
-elseif has('unix') || has('mac')
-    set fileencoding=utf-8
-    set fileformat=unix
-else
-    set fileencoding=utf-8
-    set fileformat=unix
-endif
+" Default file encoding
+set fileencoding=utf-8
+
+" Default file format
+set fileformat=unix
 
 " File encoding Detection
 set fileencodings=utf-8,iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,ucs-bom,eucjp-ms,cp932
@@ -46,20 +40,19 @@ if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#rc(expand('~/.vim/bundle'))
+" Use https protocol
+let g:neobundle#types#git#default_protocol = 'https'
+
+call neobundle#begin(expand('~/.vim/bundle'))
 
 " Let NeoBundle manage NeoBundle
-NeoBundle     'Shougo/neobundle.vim', {
-    \   'type__protocol' : 'https' }
+NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Use NeoBundle standard recipes
-NeoBundle     'Shougo/neobundle-vim-recipes', {
-    \   'type__protocol' : 'https' }
-
+NeoBundle 'Shougo/neobundle-vim-recipes'
 
 "---- vimproc ----
-NeoBundle     'Shougo/vimproc.vim', {
-    \   'type__protocol' : 'https',
+NeoBundle 'Shougo/vimproc.vim', {
     \   'build' : {
     \       'cygwin' : 'make -f make_cygwin.mak',
     \       'mac'    : 'make -f make_mac.mak',
@@ -67,17 +60,13 @@ NeoBundle     'Shougo/vimproc.vim', {
 
 
 "---- Unite ----
-NeoBundle     'Shougo/unite.vim', {
-    \   'type__protocol' : 'https' }
+NeoBundle 'Shougo/unite.vim'
 
-NeoBundle     'Shougo/neomru.vim', {
-    \   'type__protocol' : 'https' }
+NeoBundle 'Shougo/neomru.vim'
 
-NeoBundleLazy 'Shougo/unite-help', {
-    \   'type__protocol' : 'https' }
+NeoBundleLazy 'Shougo/unite-help'
 
 NeoBundleLazy 'Shougo/vimfiler.vim', {
-    \   'type__protocol' : 'https',
     \   'depends' : 'Shougo/unite.vim',
     \   'autoload' : {
     \       'explorer' : 1,
@@ -95,47 +84,36 @@ NeoBundleLazy 'Shougo/vimfiler.vim', {
 
 "---- Syntax Highlighting ----
 NeoBundleLazy 'Kocha/vim-systemc', {
-    \   'type__protocol' : 'https',
     \   'autoload' : {
     \       'filetypes' : 'cpp' }}
 
 NeoBundleLazy 'amal-khailtash/vim-xdc-syntax', {
-    \   'type__protocol' : 'https',
     \   'autoload' : {
     \       'filetypes' : 'xdc' }}
 
 
 "---- Color Scheme ----
-NeoBundle     'godlygeek/csapprox', {
-    \   'type__protocol' : 'https' }
+NeoBundle 'godlygeek/csapprox'
 
-NeoBundle     'tomasr/molokai', {
-    \   'type__protocol' : 'https' }
+NeoBundle 'tomasr/molokai'
 
-NeoBundle     'nanotech/jellybeans.vim', {
-    \   'type__protocol' : 'https' }
+NeoBundle 'nanotech/jellybeans.vim'
 
-NeoBundle     'w0ng/vim-hybrid', {
-    \   'type__protocol' : 'https' }
+NeoBundle 'w0ng/vim-hybrid'
 
 
 "---- Others ----
-NeoBundle     'itchyny/lightline.vim', {
-    \   'type__protocol' : 'https' }
+NeoBundle 'itchyny/lightline.vim'
 
-NeoBundle     'tpope/vim-fugitive', {
-    \   'type__protocol' : 'https' }
+NeoBundle 'tpope/vim-fugitive'
 
-NeoBundle     'vim-scripts/vcscommand.vim', {
-    \   'type__protocol' : 'https' }
+NeoBundle 'vim-scripts/vcscommand.vim'
 
 NeoBundleLazy 'jezcope/vim-align', {
-    \   'type__protocol' : 'https',
     \   'autoload' : {
     \       'commands' : 'Align' }}
 
 NeoBundleLazy 't9md/vim-textmanip', {
-    \   'type__protocol' : 'https',
     \   'autoload' : {
     \       'mappings' : [
     \           [ 'xn', '<Plug>(textmanip-duplicate-down)' ],
@@ -143,27 +121,23 @@ NeoBundleLazy 't9md/vim-textmanip', {
     \           [ 'x' , '<Plug>(textmanip-move-down)'      ],
     \           [ 'x' , '<Plug>(textmanip-move-up)'        ] ]}}
 
-NeoBundle     'tpope/vim-surround', {
-    \   'type__protocol' : 'https' }
+NeoBundle 'tpope/vim-surround'
 
-NeoBundle     'tpope/vim-repeat', {
-    \   'type__protocol' : 'https' }
+NeoBundle 'tpope/vim-repeat'
 
 NeoBundleLazy 'thinca/vim-visualstar', {
-    \   'type__protocol' : 'https',
     \   'autoload' : {
     \       'mappings' : [
     \           '<Plug>(visualstar-*)',
     \           '<Plug>(visualstar-#)' ]}}
 
-NeoBundle     'Lokaltog/vim-easymotion', {
+NeoBundle 'Lokaltog/vim-easymotion', {
     \   'type__protocol' : 'https' }
 
-NeoBundle     'Shougo/neocomplcache.vim', {
+NeoBundle 'Shougo/neocomplcache.vim', {
     \   'type__protocol' : 'https' }
 
 NeoBundleLazy 'Shougo/neosnippet.vim', {
-    \   'type__protocol' : 'https',
     \   'depends' : 'Shougo/neosnippet-snippets',
     \   'aoutload' : {
     \       'insert' : 1,
@@ -172,7 +146,6 @@ NeoBundleLazy 'Shougo/neosnippet.vim', {
     \           'neosnippet', 'neosnippet/user', 'neosnippet/runtime' ]}}
 
 NeoBundleLazy 'Shougo/vimshell.vim', {
-    \   'type__protocol' : 'https',
     \   'autoload' : {
     \       'commands' : [
     \       { 'name' : 'VimShell',
@@ -191,33 +164,30 @@ NeoBundleLazy 'Shougo/vimshell.vim', {
     \         'complete' : 'customlist,vimshell#complete'} ]}}
 
 NeoBundleLazy 'thinca/vim-fontzoom', {
-    \   'type__protocol' : 'https',
     \   'gui' : 1,
     \   'autoload' : {
     \       'mappings' : [
     \       [ 'n', '<Plug>(fontzoom-larger)'  ],
     \       [ 'n', '<Plug>(fontzoom-smaller)' ] ]}}
 
-NeoBundle     'vim-scripts/CmdlineComplete', {
-    \   'type__protocol' : 'https' }
+NeoBundle 'vim-scripts/CmdlineComplete'
 
 NeoBundleLazy 'vim-jp/vimdoc-ja', {
-    \   'type__protocol' : 'https',
     \   'autoload' : {
     \       'filetypes' : 'help' }}
 
-NeoBundle     'terryma/vim-multiple-cursors', {
-    \   'type__protocol' : 'https' }
+NeoBundle 'terryma/vim-multiple-cursors'
 
-NeoBundle     'scrooloose/syntastic', {
-    \   'type__protocol' : 'https' }
-
-" Installation check
-NeoBundleCheck
+NeoBundle 'scrooloose/syntastic'
 
 " Automatically detect file type by file name and content,
 " then enable filter type plugin
 filetype plugin indent on
+
+call neobundle#end()
+
+" Installation check
+NeoBundleCheck
 
 " }}}
 "=============================================================================
