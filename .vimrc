@@ -64,9 +64,9 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 
-NeoBundleLazy 'Shougo/unite-help'
+NeoBundle 'Shougo/unite-help'
 
-NeoBundleLazy 'Shougo/vimfiler.vim', {
+NeoBundle 'Shougo/vimfiler.vim', {
 \   'depends' : 'Shougo/unite.vim',
 \   'autoload' : {
 \       'explorer' : 1,
@@ -83,11 +83,11 @@ NeoBundleLazy 'Shougo/vimfiler.vim', {
 
 
 "---- Syntax Highlighting ----
-NeoBundleLazy 'Kocha/vim-systemc', {
+NeoBundle 'Kocha/vim-systemc', {
 \   'autoload' : {
 \       'filetypes' : 'cpp' }}
 
-NeoBundleLazy 'amal-khailtash/vim-xdc-syntax', {
+NeoBundle 'amal-khailtash/vim-xdc-syntax', {
 \   'autoload' : {
 \       'filetypes' : 'xdc' }}
 
@@ -104,11 +104,11 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'vim-scripts/vcscommand.vim'
 
-NeoBundleLazy 'jezcope/vim-align', {
+NeoBundle 'jezcope/vim-align', {
 \   'autoload' : {
 \       'commands' : 'Align' }}
 
-NeoBundleLazy 't9md/vim-textmanip', {
+NeoBundle 't9md/vim-textmanip', {
 \   'autoload' : {
 \       'mappings' : [
 \           [ 'xn', '<Plug>(textmanip-duplicate-down)' ],
@@ -119,7 +119,7 @@ NeoBundleLazy 't9md/vim-textmanip', {
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
 
-NeoBundleLazy 'thinca/vim-visualstar', {
+NeoBundle 'thinca/vim-visualstar', {
 \   'autoload' : {
 \       'mappings' : [
 \           '<Plug>(visualstar-*)',
@@ -131,7 +131,7 @@ NeoBundle 'Lokaltog/vim-easymotion', {
 NeoBundle 'Shougo/neocomplcache.vim', {
 \   'type__protocol' : 'https' }
 
-NeoBundleLazy 'Shougo/neosnippet.vim', {
+NeoBundle 'Shougo/neosnippet.vim', {
 \   'depends' : 'Shougo/neosnippet-snippets',
 \   'aoutload' : {
 \       'insert' : 1,
@@ -139,7 +139,7 @@ NeoBundleLazy 'Shougo/neosnippet.vim', {
 \       'unite_sources' : [
 \           'neosnippet', 'neosnippet/user', 'neosnippet/runtime' ]}}
 
-NeoBundleLazy 'Shougo/vimshell.vim', {
+NeoBundle 'Shougo/vimshell.vim', {
 \   'autoload' : {
 \       'commands' : [
 \       { 'name' : 'VimShell',
@@ -157,7 +157,7 @@ NeoBundleLazy 'Shougo/vimshell.vim', {
 \       { 'name' : 'VimShellTerminal',
 \         'complete' : 'customlist,vimshell#complete'} ]}}
 
-NeoBundleLazy 'thinca/vim-fontzoom', {
+NeoBundle 'thinca/vim-fontzoom', {
 \   'gui' : 1,
 \   'autoload' : {
 \       'mappings' : [
