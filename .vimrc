@@ -11,8 +11,11 @@
 
 set nocompatible
 
-" Leader key
-let mapleader="]"
+" }}}
+"=============================================================================
+"==== Leader Key ====                                                      {{{
+
+let mapleader = "<Space>"
 
 " }}}
 "=============================================================================
@@ -27,14 +30,12 @@ set fileencoding=utf-8
 " Default file format
 set fileformat=unix
 
-" File encoding Detection
+" File encoding detection
 set fileencodings=utf-8,iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,ucs-bom,eucjp-ms,cp932
 
 " }}}
 "=============================================================================
 "==== neobundle.vim ====                                                   {{{
-
-filetype off
 
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -53,138 +54,129 @@ NeoBundle 'Shougo/neobundle-vim-recipes'
 
 "---- vimproc ----
 NeoBundle 'Shougo/vimproc.vim', {
-    \   'build' : {
-    \       'cygwin' : 'make -f make_cygwin.mak',
-    \       'mac'    : 'make -f make_mac.mak',
-    \       'unix'   : 'make -f make_unix.mak' }}
+\   'build' : {
+\       'cygwin' : 'make -f make_cygwin.mak',
+\       'mac'    : 'make -f make_mac.mak',
+\       'unix'   : 'make -f make_unix.mak' }}
 
 
 "---- Unite ----
 NeoBundle 'Shougo/unite.vim'
-
 NeoBundle 'Shougo/neomru.vim'
 
-NeoBundleLazy 'Shougo/unite-help'
+NeoBundle 'Shougo/unite-help'
 
-NeoBundleLazy 'Shougo/vimfiler.vim', {
-    \   'depends' : 'Shougo/unite.vim',
-    \   'autoload' : {
-    \       'explorer' : 1,
-    \       'mappings' : '<Plug>(vimfiler_',
-    \       'commands' : [
-    \           { 'name' : 'VimFiler',
-    \             'complete' : 'customlist,vimfiler#complete' },
-    \           { 'name' : 'VimFilerBufferDir',
-    \             'complete' : 'customlist,vimfiler#complete' },
-    \           { 'name' : 'VimFilerExplorer',
-    \             'complete' : 'customlist,vimfiler#complete' },
-    \           { 'name' : 'VimFilerTab',
-    \             'complete' : 'customlist,vimfiler#complete' } ]}}
+NeoBundle 'Shougo/vimfiler.vim', {
+\   'depends' : 'Shougo/unite.vim',
+\   'autoload' : {
+\       'explorer' : 1,
+\       'mappings' : '<Plug>(vimfiler_',
+\       'commands' : [
+\           { 'name' : 'VimFiler',
+\             'complete' : 'customlist,vimfiler#complete' },
+\           { 'name' : 'VimFilerBufferDir',
+\             'complete' : 'customlist,vimfiler#complete' },
+\           { 'name' : 'VimFilerExplorer',
+\             'complete' : 'customlist,vimfiler#complete' },
+\           { 'name' : 'VimFilerTab',
+\             'complete' : 'customlist,vimfiler#complete' } ]}}
 
 
 "---- Syntax Highlighting ----
-NeoBundleLazy 'Kocha/vim-systemc', {
-    \   'autoload' : {
-    \       'filetypes' : 'cpp' }}
+NeoBundle 'Kocha/vim-systemc', {
+\   'autoload' : {
+\       'filetypes' : 'cpp' }}
 
-NeoBundleLazy 'amal-khailtash/vim-xdc-syntax', {
-    \   'autoload' : {
-    \       'filetypes' : 'xdc' }}
+NeoBundle 'amal-khailtash/vim-xdc-syntax', {
+\   'autoload' : {
+\       'filetypes' : 'xdc' }}
 
 
 "---- Color Scheme ----
 NeoBundle 'godlygeek/csapprox'
-
 NeoBundle 'tomasr/molokai'
-
 NeoBundle 'nanotech/jellybeans.vim'
-
 NeoBundle 'w0ng/vim-hybrid'
 
 
 "---- Others ----
 NeoBundle 'itchyny/lightline.vim'
-
 NeoBundle 'tpope/vim-fugitive'
-
 NeoBundle 'vim-scripts/vcscommand.vim'
 
-NeoBundleLazy 'jezcope/vim-align', {
-    \   'autoload' : {
-    \       'commands' : 'Align' }}
+NeoBundle 'jezcope/vim-align', {
+\   'autoload' : {
+\       'commands' : 'Align' }}
 
-NeoBundleLazy 't9md/vim-textmanip', {
-    \   'autoload' : {
-    \       'mappings' : [
-    \           [ 'xn', '<Plug>(textmanip-duplicate-down)' ],
-    \           [ 'xn', '<Plug>(textmanip-duplicate-up)'   ],
-    \           [ 'x' , '<Plug>(textmanip-move-down)'      ],
-    \           [ 'x' , '<Plug>(textmanip-move-up)'        ] ]}}
+NeoBundle 't9md/vim-textmanip', {
+\   'autoload' : {
+\       'mappings' : [
+\           [ 'xn', '<Plug>(textmanip-duplicate-down)' ],
+\           [ 'xn', '<Plug>(textmanip-duplicate-up)'   ],
+\           [ 'x' , '<Plug>(textmanip-move-down)'      ],
+\           [ 'x' , '<Plug>(textmanip-move-up)'        ] ]}}
 
 NeoBundle 'tpope/vim-surround'
-
 NeoBundle 'tpope/vim-repeat'
 
-NeoBundleLazy 'thinca/vim-visualstar', {
-    \   'autoload' : {
-    \       'mappings' : [
-    \           '<Plug>(visualstar-*)',
-    \           '<Plug>(visualstar-#)' ]}}
+NeoBundle 'thinca/vim-visualstar', {
+\   'autoload' : {
+\       'mappings' : [
+\           '<Plug>(visualstar-*)',
+\           '<Plug>(visualstar-#)' ]}}
 
 NeoBundle 'Lokaltog/vim-easymotion', {
-    \   'type__protocol' : 'https' }
+\   'type__protocol' : 'https' }
 
 NeoBundle 'Shougo/neocomplcache.vim', {
-    \   'type__protocol' : 'https' }
+\   'type__protocol' : 'https' }
 
-NeoBundleLazy 'Shougo/neosnippet.vim', {
-    \   'depends' : 'Shougo/neosnippet-snippets',
-    \   'aoutload' : {
-    \       'insert' : 1,
-    \       'filetypes' : 'snippet',
-    \       'unite_sources' : [
-    \           'neosnippet', 'neosnippet/user', 'neosnippet/runtime' ]}}
+NeoBundle 'Shougo/neosnippet.vim', {
+\   'depends' : 'Shougo/neosnippet-snippets',
+\   'aoutload' : {
+\       'insert' : 1,
+\       'filetypes' : 'snippet',
+\       'unite_sources' : [
+\           'neosnippet', 'neosnippet/user', 'neosnippet/runtime' ]}}
 
-NeoBundleLazy 'Shougo/vimshell.vim', {
-    \   'autoload' : {
-    \       'commands' : [
-    \       { 'name' : 'VimShell',
-    \         'complete' : 'customlist,vimshell#complete'},
-    \       { 'name' : 'VimShellBufferDir',
-    \         'complete' : 'customlist,vimshell#complete'},
-    \       { 'name' : 'VimShellPop',
-    \         'complete' : 'customlist,vimshell#complete'},
-    \       { 'name' : 'VimShellExecute',
-    \         'complete' : 'customlist,vimshell#complete'},
-    \       { 'name' : 'VimShellInteractive',
-    \         'complete' : 'customlist,vimshell#complete'},
-    \       { 'name' : 'VimShellCreate',
-    \         'complete' : 'customlist,vimshell#complete'},
-    \       { 'name' : 'VimShellTerminal',
-    \         'complete' : 'customlist,vimshell#complete'} ]}}
+NeoBundle 'Shougo/vimshell.vim', {
+\   'autoload' : {
+\       'commands' : [
+\       { 'name' : 'VimShell',
+\         'complete' : 'customlist,vimshell#complete'},
+\       { 'name' : 'VimShellBufferDir',
+\         'complete' : 'customlist,vimshell#complete'},
+\       { 'name' : 'VimShellPop',
+\         'complete' : 'customlist,vimshell#complete'},
+\       { 'name' : 'VimShellExecute',
+\         'complete' : 'customlist,vimshell#complete'},
+\       { 'name' : 'VimShellInteractive',
+\         'complete' : 'customlist,vimshell#complete'},
+\       { 'name' : 'VimShellCreate',
+\         'complete' : 'customlist,vimshell#complete'},
+\       { 'name' : 'VimShellTerminal',
+\         'complete' : 'customlist,vimshell#complete'} ]}}
 
-NeoBundleLazy 'thinca/vim-fontzoom', {
-    \   'gui' : 1,
-    \   'autoload' : {
-    \       'mappings' : [
-    \       [ 'n', '<Plug>(fontzoom-larger)'  ],
-    \       [ 'n', '<Plug>(fontzoom-smaller)' ] ]}}
+NeoBundle 'thinca/vim-fontzoom', {
+\   'gui' : 1,
+\   'autoload' : {
+\       'mappings' : [
+\       [ 'n', '<Plug>(fontzoom-larger)'  ],
+\       [ 'n', '<Plug>(fontzoom-smaller)' ] ]}}
 
 NeoBundle 'vim-scripts/CmdlineComplete'
 
-NeoBundleLazy 'vim-jp/vimdoc-ja', {
-    \   'autoload' : {
-    \       'filetypes' : 'help' }}
+NeoBundle 'vim-jp/vimdoc-ja'
 
 NeoBundle 'terryma/vim-multiple-cursors'
 
 NeoBundle 'scrooloose/syntastic'
 
+call neobundle#end()
+
 " Automatically detect file type by file name and content,
 " then enable filter type plugin
 filetype plugin indent on
-
-call neobundle#end()
 
 " Installation check
 NeoBundleCheck
@@ -462,7 +454,7 @@ let g:vimfiler_as_default_explorer = 1
 
 " Safe Mode enable by default
 let g:vimfiler_safe_mode_by_default = 1
- 
+
 " Key mappings for vimfiler
 augroup vimfiler
     autocmd!
