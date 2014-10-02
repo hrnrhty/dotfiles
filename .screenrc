@@ -14,6 +14,7 @@ defbce on
 startup_message off
 autodetach on
 vbell off
+altscreen on
 term xterm-256color
 shell $SHELL
 
