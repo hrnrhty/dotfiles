@@ -34,7 +34,7 @@ export LSCOLORS=exfxcxdxbxegedabagacad
 #=============================================================================
 #==== Aliases ====                                                         {{{
 
-if [ ${OSTYPE} = darwin13 ]; then
+if [ `echo ${OSTYPE} | grep 'darwin'` ]; then
     alias ls='ls -CF -G'
 else
     alias ls='ls -CF --color=auto --show-control-chars'
