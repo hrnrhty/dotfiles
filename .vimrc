@@ -54,6 +54,7 @@ NeoBundle 'Shougo/neobundle-vim-recipes'
 
 "---- vimproc ----
 NeoBundle 'Shougo/vimproc.vim', {
+\   'disabled' : has('win32')||has('win64'),
 \   'build' : {
 \       'cygwin' : 'make -f make_cygwin.mak',
 \       'mac'    : 'make -f make_mac.mak',
