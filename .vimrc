@@ -130,6 +130,11 @@ NeoBundle 'Lokaltog/vim-easymotion', {
 \   'type__protocol' : 'https' }
 
 NeoBundle 'Shougo/neocomplcache.vim', {
+\   'disabled' : has('lua'),
+\   'type__protocol' : 'https' }
+
+NeoBundle 'Shougo/neocomplete', {
+\   'disabled' : !has('lua'),
 \   'type__protocol' : 'https' }
 
 NeoBundle 'Shougo/neosnippet.vim', {
@@ -317,11 +322,25 @@ let g:vimshell_force_overwrite_statusline = 0
 "=============================================================================
 "==== neocomplcache.vim ====                                               {{{
 
-" Use neocomplcache
-let g:neocomplcache_enable_at_startup = 1
+if !has('lua')
+    " Use neocomplcache
+    let g:neocomplcache_enable_at_startup = 1
 
-" Use smartcase
-let g:neocomplcache_enable_smart_case = 1
+    " Use smartcase
+    let g:neocomplcache_enable_smart_case = 1
+endif
+
+" }}}
+"=============================================================================
+"==== neocomplete.vim ====                                                 {{{
+
+if has('lua')
+    " Use neocomplcache
+    let g:neocomplete#enable_at_startup = 1
+
+    " Use smartcase
+    let g:neocomplete#enable_smart_case = 1
+endif
 
 " }}}
 "=============================================================================
