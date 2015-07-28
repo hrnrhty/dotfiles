@@ -958,21 +958,3 @@ endif
 
 " }}}
 "=============================================================================
-"==== for terminal ====                                                    {{{
-
-if has('unix') && &term=='xterm-256color'
-    " Cursor behavior
-    let &t_ti.="\eP\e[1 q\e\\"
-    let &t_SI.="\eP\e[5 q\e\\"
-    let &t_EI.="\eP\e[1 q\e\\"
-    let &t_te.="\eP\e[0 q\e\\"
-
-    " Arrow key
-    inoremap OA <Up>
-    inoremap OB <Down>
-    inoremap OC <Right>
-    inoremap OD <Left>
-endif
-
-" }}}
-"=============================================================================
