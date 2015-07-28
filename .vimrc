@@ -853,6 +853,9 @@ set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 " Prevent delay after ESC
 set timeout ttimeoutlen=100
 
+" ambiwidth
+set ambiwidth=double
+
 " .m files are Objective-C, not Matlab
 let g:filetype_m = 'objc'
 
