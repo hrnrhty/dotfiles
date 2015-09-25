@@ -820,7 +820,7 @@ augroup fopt
 augroup END
 
 " grep command
-set grepprg=grep\ -nH
+set grepprg=grep\ -rnH\ --exclude-dir=.svn\ --exclude-dir=.git
 
 " Yanks go on clipboard
 set clipboard+=unnamed
