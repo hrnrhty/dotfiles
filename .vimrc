@@ -870,7 +870,7 @@ augroup END
 "==== Color ====                                                           {{{
 
 let g:default_cs = 'molokai'
-let g:cs_0       = 'hybrid-light'
+let g:cs_0       = 'hybrid'
 let g:cs_1       = 'jellybeans'
 
 function! g:ColorSchemeToggle()
