@@ -777,6 +777,9 @@ set showcmd
 " Do not make backup file
 set nobackup
 
+" Do not make undo file
+set noundofile
+
 " Make a backup before overwriting a file
 " The backup is removed after the file was successfully written,
 " unless the 'backup' option is also on
