@@ -226,7 +226,7 @@ let g:lightline = {
 
 let g:romark = "\u2b64"
 let g:mark = "\u2b60 "
-if !has('gui_running') && &term != 'xterm-256color'
+if !has('gui_running') && &term != 'xterm-256color' || has('win32') || has('win64')
     let g:romark = 'RO'
     let g:mark = ''
     let g:lightline = {
