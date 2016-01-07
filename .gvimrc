@@ -26,7 +26,11 @@ set columns=84
 set lines=53
 
 " Default font name
-let fontname = 'Ricty\ for\ Powerline'
+if has('win32') || has('win64')
+    let fontname = 'Inconsolata'
+else
+    let fontname = 'Ricty\ for\ Powerline'
+endif
 
 " Default font setting
 if has('win32') || has('win64') || has('mac')
