@@ -178,6 +178,12 @@ NeoBundle 'terryma/vim-multiple-cursors'
 
 NeoBundle 'scrooloose/syntastic'
 
+NeoBundle 'plasticboy/vim-markdown'
+
+NeoBundle 'KannoKanno/previm'
+
+NeoBundle 'tyru/open-browser.vim'
+
 call neobundle#end()
 
 " Automatically detect file type by file name and content,
