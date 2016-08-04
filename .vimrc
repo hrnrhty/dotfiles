@@ -236,8 +236,26 @@ if !has('gui_running') && &term != 'xterm-256color' || has('win32') || has('win6
     let g:romark = 'RO'
     let g:mark = ''
     let g:lightline = {
+    \   'colorscheme':  'default',
+    \   'active': {
+    \       'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
+    \       'right': [ [ 'syntastic', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ], },
+    \   'inactive': {
+    \       'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
+    \       'right': [ ['lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ], },
     \   'component': {
     \       'lineinfo': '%3l:%-2v', },
+    \   'component_function': {
+    \       'fugitive': 'MyFugitive',
+    \       'filename': 'MyFilename',
+    \       'fileformat': 'MyFileformat',
+    \       'filetype': 'MyFiletype',
+    \       'fileencoding': 'MyFileencoding',
+    \       'mode': 'MyMode', },
+    \   'component_expand': {
+    \       'syntastic': 'SyntasticStatuslineFlag', },
+    \   'component_type': {
+    \       'syntastic': 'error', },
     \   'separator': {
     \       'left': '', 'right': '', },
     \   'subseparator': {
