@@ -176,7 +176,7 @@ NeoBundle 'vim-jp/vimdoc-ja'
 
 NeoBundle 'terryma/vim-multiple-cursors'
 
-NeoBundle 'scrooloose/syntastic'
+NeoBundle 'vim-syntastic/syntastic'
 
 NeoBundle 'plasticboy/vim-markdown'
 
@@ -314,7 +314,7 @@ endfunction
 
 augroup AutoSyntastic
     autocmd!
-    autocmd BufWritePost *.v,*.vh,*.sv,*.c,*.cpp,*.rb call s:syntastic()
+    autocmd BufWritePost *.v,*.vh,*.sv,*.c,*.cpp,*.rb,*.py call s:syntastic()
 augroup END
 
 let s:SyntaxCheckEnable = 0
