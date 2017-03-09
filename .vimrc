@@ -358,6 +358,12 @@ if has('lua')
 
     " Use smartcase
     let g:neocomplete#enable_smart_case = 1
+
+    " Disable Python Omni-Complete
+    if !exists('g:neocomplete#sources#omni#input_patterns')
+        let g:neocomplete#sources#omni#input_patterns = {}
+    endif
+    let g:neocomplete#sources#omni#input_patterns.python = ''
 endif
 
 " }}}
