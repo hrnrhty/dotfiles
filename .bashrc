@@ -19,9 +19,6 @@ set -o noclobber
 set -o ignoreeof
 set -o notify
 
-#---- Language ----
-export LANG='ja_JP.UTF-8'
-
 #---- Prompt ----
 export PS1='[\u@\h \W]\$ '
 export PS2='> '
