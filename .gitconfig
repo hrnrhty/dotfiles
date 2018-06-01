@@ -8,6 +8,8 @@
 #                                                   - .gitconfig
 #
 #=============================================================================
+[color]
+	ui = auto
 [core]
 	autocrlf = false
 	editor = "vim -c 'set fileencoding=utf-8'"
@@ -16,7 +18,6 @@
 	tool = vimdiff
 [mergetool]
 	trustExitCode = false
-[color]
-	ui = auto
-[alias]
-	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --oneline --decorate
+[user]
+	name = hrnrhty
+	email = hrnrhty@gmail.com
