@@ -163,8 +163,6 @@ NeoBundle 'thinca/vim-fontzoom', {
 
 NeoBundle 'vim-scripts/CmdlineComplete'
 
-NeoBundle 'vim-jp/vimdoc-ja'
-
 NeoBundle 'terryma/vim-multiple-cursors'
 
 NeoBundle 'vim-syntastic/syntastic'
