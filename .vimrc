@@ -88,10 +88,7 @@ NeoBundle 'amal-khailtash/vim-xdc-syntax', {
 
 
 "---- Color Scheme ----
-NeoBundle 'godlygeek/csapprox'
-NeoBundle 'tomasr/molokai'
-NeoBundle 'nanotech/jellybeans.vim'
-NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'morhetz/gruvbox'
 
 
 "---- Others ----
@@ -198,7 +195,7 @@ let g:EasyMotion_leader_key = ',,'
 "==== lightline.vim ====                                                   {{{
 
 let g:lightline = {
-\   'colorscheme':  'default',
+\   'colorscheme':  'gruvbox',
 \   'active': {
 \       'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
 \       'right': [ [ 'syntastic', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ], },
@@ -899,95 +896,20 @@ augroup detect_vh_file
     autocmd bufNewFile,bufRead *.vh setfiletype verilog
 augroup END
 
+" Disable mode display
+set noshowmode
+
 " }}}
 "=============================================================================
 "==== Color ====                                                           {{{
 
-let g:default_cs = 'molokai'
-let g:cs_0       = 'hybrid'
-let g:cs_1       = 'jellybeans'
+set background=dark
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
 
-function! g:ColorSchemeToggle()
-    if g:colors_name == g:default_cs
-        let next = g:cs_0
-    elseif g:colors_name == g:cs_0
-        let next = g:cs_1
-    elseif g:colors_name == g:cs_1
-        let next = g:default_cs
-    else
-        let next = g:default_cs
-    endif
-    execute 'colorscheme '.next
-    call g:DisableHlAttr()
-    redraw
-    echo 'colorscheme has changed: "'.next.'"'
-endfunction
-
-function! g:DisableHlAttr()
-    if !has('gui_running') && &term != 'linux'
-        highlight Conditional cterm=NONE
-        highlight Constant cterm=NONE
-        highlight Debug cterm=NONE
-        highlight Comment cterm=NONE
-        highlight DiffText cterm=NONE
-        highlight Directory cterm=NONE
-        highlight ErrorMsg cterm=NONE
-        highlight Exception cterm=NONE
-        highlight Keyword cterm=NONE
-        highlight Macro cterm=NONE
-        highlight MatchParen cterm=NONE
-        highlight PreCondit cterm=NONE
-        highlight Repeat cterm=NONE
-        highlight SpecialChar cterm=NONE
-        highlight SpecialComment cterm=NONE
-        highlight Special cterm=NONE
-        highlight Statement cterm=NONE
-        highlight SpecialKey cterm=NONE
-        highlight Statusline cterm=NONE
-        highlight StorageClass cterm=NONE
-        highlight String cterm=NONE
-        highlight Tag cterm=NONE
-        highlight Todo cterm=NONE
-        highlight VertSplit cterm=NONE
-        highlight WarningMsg cterm=NONE
-    elseif has('gui_running')
-        highlight Conditional gui=NONE
-        highlight Constant gui=NONE
-        highlight Debug gui=NONE
-        highlight Comment gui=NONE
-        highlight DiffText gui=NONE
-        highlight Directory gui=NONE
-        highlight ErrorMsg gui=NONE
-        highlight Exception gui=NONE
-        highlight Keyword gui=NONE
-        highlight Macro gui=NONE
-        highlight MatchParen gui=NONE
-        highlight PreCondit gui=NONE
-        highlight Repeat gui=NONE
-        highlight SpecialChar gui=NONE
-        highlight SpecialComment gui=NONE
-        highlight Special gui=NONE
-        highlight Statement gui=NONE
-        highlight SpecialKey gui=NONE
-        highlight Statusline gui=NONE
-        highlight StorageClass gui=NONE
-        highlight String gui=NONE
-        highlight Tag gui=NONE
-        highlight Todo gui=NONE
-        highlight VertSplit gui=NONE
-        highlight WarningMsg gui=NONE
-    endif
-endfunction
-
-if !has('gui_running') && &term != 'linux'
-    " Enable 256-color
+if !has('gui_running')
+    " Enable 256 colors
     set t_Co=256
-
-    execute 'colorscheme '.g:default_cs
-    call g:DisableHlAttr()
-
-    " Key mapping for ColorSchemeToggle
-    nnoremap ,c :<C-u>call g:ColorSchemeToggle()<CR>
 endif
 
 " }}}

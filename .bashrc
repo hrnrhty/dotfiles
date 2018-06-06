@@ -79,6 +79,14 @@ alias gt='git tag'
 
 # }}}
 #=============================================================================
+#==== Color settings for vim-gruvbox ====                                  {{{
+
+if [ -e ~/.vim/bundle/gruvbox/gruvbox_256palette.sh ]; then
+    source ~/.vim/bundle/gruvbox/gruvbox_256palette.sh
+fi
+
+# }}}
+#=============================================================================
 #==== Source local settings ====                                           {{{
 
 if [ -e ~/.bashrc.local ]; then

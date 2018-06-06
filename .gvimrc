@@ -7,16 +7,6 @@
 "                                                   - .gvimrc
 "
 "=============================================================================
-"==== Color ====                                                           {{{
-
-execute 'colorscheme '.g:default_cs
-call g:DisableHlAttr()
-
-" Key mapping for ColorSchemeToggle
-nnoremap ,c :<C-u>call g:ColorSchemeToggle()<CR>
-
-" }}}
-"=============================================================================
 "==== Font and Window ====                                                 {{{
 
 " Default column width of the window
