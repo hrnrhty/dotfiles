@@ -7,6 +7,14 @@
 "                                                   - .gvimrc
 "
 "=============================================================================
+"==== Color ====                                                           {{{
+
+set background=dark
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
+
+" }}}
+"=============================================================================
 "==== Font and Window ====                                                 {{{
 
 " Default column width of the window
@@ -16,11 +24,7 @@ set columns=84
 set lines=53
 
 " Default font name
-if has('win32') || has('win64')
-    let fontname = 'Inconsolata'
-else
-    let fontname = 'Ricty\ for\ Powerline'
-endif
+let fontname = 'Ricty\ for\ Powerline'
 
 " Default font setting
 if has('win32') || has('win64') || has('mac')
