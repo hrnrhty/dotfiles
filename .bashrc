@@ -65,6 +65,8 @@ alias gfa='git fetch --all'
 alias gh='git log --color --decorate --graph --oneline'
 alias gha='git log --color --decorate --graph --oneline --all'
 alias gl='git log --color'
+alias gln='git log --color --name-only'
+alias gls='git log --color --stat'
 alias gm='git merge'
 alias gmv='git mv'
 alias gpl='git pull'
@@ -76,6 +78,15 @@ alias grm='git rm'
 alias grst='git reset --hard'
 alias gs='git status'
 alias gt='git tag'
+
+#---- Subversion ----
+alias svc='svn commit'
+alias svd='svn diff | vim -'
+alias svi='svn info'
+alias svl='svn log | vim -'
+alias svlv='svn log -v | vim -'
+alias svs='svn status'
+alias svu='svn update'
 
 # }}}
 #=============================================================================
