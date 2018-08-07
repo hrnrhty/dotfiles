@@ -225,7 +225,7 @@ if !has('gui_running') && &term != 'xterm-256color' || has('win32') || has('win6
     let g:romark = 'RO'
     let g:mark = ''
     let g:lightline = {
-    \   'colorscheme':  'default',
+    \   'colorscheme':  'gruvbox',
     \   'active': {
     \       'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ],
     \       'right': [ [ 'syntastic', 'lineinfo' ], [ 'percent' ], [ 'fileformat', 'fileencoding', 'filetype' ] ], },
