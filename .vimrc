@@ -22,8 +22,8 @@ Plug 'Shougo/neocomplcache.vim'
 Plug 'Shougo/neocomplete'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/unite-help'
 Plug 'Shougo/unite.vim'
-Plug 'Shougo/unit-help'
 Plug 'Shougo/vimfiler.vim'
 Plug 'Shougo/vimshell.vim'
 Plug 'amal-khailtash/vim-xdc-syntax'
@@ -34,7 +34,6 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 't9md/vim-textmanip'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-visualstar'
-Plug 'thinca/vim-visualstar'
 Plug 'thinca/vim-fontzoom'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
@@ -42,6 +41,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tyru/open-browser.vim'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/vcscommand.vim'
 Plug 'vim-scripts/CmdlineComplete'
 Plug 'vim-syntastic/syntastic'
@@ -328,6 +328,7 @@ set foldlevelstart=0
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 set timeout ttimeoutlen=100
 "set ambiwidth=double
+set cursorline
 set mouse=a
 set ttymouse=xterm2
 let g:filetype_m = 'objc'
@@ -342,9 +343,12 @@ set noshowmode
 " color
 colorscheme molokai
 let g:airline_powerline_fonts = 1
+let g:airline_theme = 'molokai'
+let g:airline#extensions#tabline#enabled = 1
 
-if !has('gui_running')
-    " Enable 256 colors
+if (has('termguicolors') && $TERM_PROGRAM!='Apple_Terminal')
+    set termguicolors
+else
     set t_Co=256
 endif
 
