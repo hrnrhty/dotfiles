@@ -6,28 +6,10 @@
 "                    /____/
 "                                                   - .gvimrc
 "
-"=============================================================================
-"==== Color ====                                                           {{{
-
-set background=dark
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_italic=0
-colorscheme gruvbox
-
-" }}}
-"=============================================================================
-"==== Font and Window ====                                                 {{{
-
-" Default column width of the window
-set columns=84
-
-" Default number of lines of the window
-set lines=53
-
-" Default font name
+"-----------------------------------------------------------------------------
+"---- font ----
 let fontname = 'Ricty\ for\ Powerline'
 
-" Default font setting
 if has('win32') || has('win64') || has('mac')
     execute 'set guifont='.fontname.':h12'
 elseif has('unix')
@@ -36,35 +18,21 @@ else
     execute 'set guifont='
 endif
 
-" }}}
-"=============================================================================
-"==== GUI Display ====                                                     {{{
-
-"-----------------
-"   Tab display
-"-----------------
-
-" Tab label
-"    0: Always hide
-"    1: Show if tabs are opened more than 2
-"    2: Always show
-set showtabline=1
-
-
-"---------------------------
-"   GUI Tool Bar and Menu
-"---------------------------
-
-"----- Default -----
-" Hide GUI Tool Bar
-set guioptions-=T
-
-" Hide GUI Menu
-set guioptions-=m
-
-"----- Switches ToolBar/Menu display ON/OFF -----
+"---- key mappings ----
 nnoremap <F2> :<C-u>call <SID>MenuToggle()<CR>
 
+"---- options ----
+set columns=84
+set lines=53
+set showtabline=1
+set guioptions-=T
+set guioptions-=m
+
+source $VIMRUNTIME/delmenu.vim
+set langmenu=ja_jp.utf-8
+source $VIMRUNTIME/menu.vim
+
+"---- functions ----
 function! s:MenuToggle()
     if &guioptions =~# 'T'
         set guioptions-=T
@@ -75,14 +43,5 @@ function! s:MenuToggle()
     endif
 endfunction
 
-" }}}
-"=============================================================================
-"==== Options ====                                                         {{{
-
-" Settings for Japanese Menu
-source $VIMRUNTIME/delmenu.vim
-set langmenu=ja_jp.utf-8
-source $VIMRUNTIME/menu.vim
-
-" }}}
-"=============================================================================
+"---- color ----
+colorscheme molokai

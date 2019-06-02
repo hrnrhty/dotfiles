@@ -6,16 +6,15 @@
 #
 #                                                   - .vimshrc
 #
-#=============================================================================
-#==== Aliases ====                                                         {{{
-
+#-----------------------------------------------------------------------------
+#---- aliases ----
 alias ls='ls -F --color'
 alias l='ls'
 alias la='ls -a'
 alias ll='ls -l'
 alias lla='ls -la'
 
-#---- Git ----
+# git
 alias gad='git add'
 alias gb='git branch --color'
 alias gba='git branch --color -a'
@@ -42,5 +41,11 @@ alias grst='git reset --hard'
 alias gs='git status'
 alias gt='git tag'
 
-# }}}
-#=============================================================================
+# subversion
+alias svc='svn commit'
+alias svd='svn diff'
+alias svi='svn info'
+alias svl='svn log'
+alias svlv='svn log -v'
+alias svs='svn status'
+alias svu='svn update'

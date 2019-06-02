@@ -6,36 +6,24 @@
 #
 #                                                   - .bashrc
 #
-#=============================================================================
-#==== If not running interactively, don't do anyting ====                  {{{
+#-----------------------------------------------------------------------------
+# if not running interactively, don't do anyting
 [ -z "$PS1" ] && return
 
-# }}}
-#=============================================================================
-#==== General settings ====                                                {{{
-
+#---- settings ----
 umask 022
 set -o noclobber
 set -o ignoreeof
 set -o notify
-
-#---- Prompt ----
 export PS1='[\u@\h \W]\$ '
 export PS2='> '
-
-#---- Local bin path ----
+export HISTSIZE=1000
+export LSCOLORS=exfxcxdxbxegedabagacad
 if [ -e ${HOME}/bin ]; then
     export PATH=${PATH}:${HOME}/bin
 fi
 
-#---- Other Settings ----
-export HISTSIZE=1000
-export LSCOLORS=exfxcxdxbxegedabagacad
-
-# }}}
-#=============================================================================
-#==== Aliases ====                                                         {{{
-
+#---- aliases ----
 if [ `echo ${OSTYPE} | grep 'darwin'` ]; then
     alias ls='ls -CF -G'
 else
@@ -50,7 +38,7 @@ alias mv='mv -i'
 alias rm='rm -i'
 alias du='du -hs'
 
-#---- Git ----
+# git
 alias gad='git add'
 alias gb='git branch --color'
 alias gba='git branch --color -a'
@@ -79,7 +67,7 @@ alias grst='git reset --hard'
 alias gs='git status'
 alias gt='git tag'
 
-#---- Subversion ----
+# subversion
 alias svc='svn commit'
 alias svd='svn diff | vim -'
 alias svi='svn info'
@@ -88,21 +76,7 @@ alias svlv='svn log -v | vim -'
 alias svs='svn status'
 alias svu='svn update'
 
-# }}}
-#=============================================================================
-#==== Color settings for vim-gruvbox ====                                  {{{
-
-if [ -e ~/.vim/bundle/gruvbox/gruvbox_256palette.sh ]; then
-    source ~/.vim/bundle/gruvbox/gruvbox_256palette.sh
-fi
-
-# }}}
-#=============================================================================
-#==== Source local settings ====                                           {{{
-
+#---- local settings ----
 if [ -e ~/.bashrc.local ]; then
     source ~/.bashrc.local
 fi
-
-# }}}
-#=============================================================================
