@@ -6,30 +6,33 @@
 "
 "                                                   - .vimrc
 "
-"=============================================================================
-
+"-----------------------------------------------------------------------------
 set nocompatible
 set encoding=utf-8
 set fileencoding=utf-8
+set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set fileformat=unix
-set fileencodings=utf-8,iso-2022-jp-3,iso-2022-jp,euc-jisx0213,euc-jp,ucs-bom,eucjp-ms,cp932
+set fileformats=unix,dos,mac
 
+"-----------------------------------------------------------------------------
+"---- vim-plug ----
 call plug#begin('~/.vim/plugged')
-Plug 'KannoKanno/previm'
-Plug 'Kocha/vim-systemc'
+Plug 'KannoKanno/previm', { 'for': 'markdown' }
+Plug 'Kocha/vim-systemc', { 'for': 'cpp' }
 Plug 'Lokaltog/vim-easymotion'
-Plug 'Shougo/neocomplcache.vim'
 Plug 'Shougo/neocomplete'
+Plug 'Shougo/neocomplcache.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'Shougo/unite-help'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell.vim'
-Plug 'amal-khailtash/vim-xdc-syntax'
-Plug 'jezcope/vim-align', { 'on':  'Align' }
-Plug 'plasticboy/vim-markdown'
-Plug 'ryanoasis/vim-devicons'
+Plug 'amal-khailtash/vim-xdc-syntax', { 'for': 'xdc' }
+Plug 'jezcope/vim-align'
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 't9md/vim-textmanip'
 Plug 'terryma/vim-multiple-cursors'
@@ -39,24 +42,22 @@ Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser.vim', { 'for': 'markdown' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/vcscommand.vim'
 Plug 'vim-scripts/CmdlineComplete'
 Plug 'vim-syntastic/syntastic'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
-" vim-easymotion
-let g:EasyMotion_learder_key = ',,'
+"---- previm ----
+let g:previm_show_header = 0
 
-" neocomplecache.vim
-if !has('lua')
-    let g:neocomplcache_enable_at_startup = 1
-    let g:neocomplcache_enable_smart_case = 1
-endif
+"---- vim-easymotion ----
+map ,, <Plug>(easymotion-prefix)
 
-" neocomplete.vim
+"---- neocomplete ----
 if has('lua')
     let g:neocomplete#enable_at_startup = 1
     let g:neocomplete#enable_smart_case = 1
@@ -66,7 +67,13 @@ if has('lua')
     let g:neocomplete#sources#omni#input_patterns.python = ''
 endif
 
-" neosnippet.vim
+"---- neocomplcache.vim ----
+if !has('lua')
+    let g:neocomplcache_enable_at_startup = 1
+    let g:neocomplcache_enable_smart_case = 1
+endif
+
+"---- neosnippet.vim ----
 let g:neosnippet#snippets_directory = '~/.snippets'
 
 imap <expr><C-k> neosnippet#expandable() ?
@@ -89,10 +96,7 @@ if has('conceal')
     set conceallevel=2 concealcursor=i
 endif
 
-" syntastic
-let g:syntastic_mode_map = { 'mode': 'passive' }
-
-" unite.vim
+"---- unite.vim ----
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable = 1
 nnoremap [unite] <Nop>
@@ -132,7 +136,7 @@ function! s:unite_settings()
     inoremap <silent><buffer><expr> D unite#smart_map('D', unite#do_action('diff'))
 endfunction
 
-" vimfiler.vim
+"---- vimfiler.vim ----
 let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 1
 
@@ -150,7 +154,7 @@ nnoremap <silent> ,v :<C-u>VimFiler<CR>
 nnoremap <silent> ,b :<C-u>VimFilerBufferDir<CR>
 nnoremap <silent> ,t :<C-u>VimFilerExplorer<CR>
 
-" vimshell.vim
+"---- vimshell.vim ----
 if has('win32') || has('win64')
     let g:vimshell_interactive_encodings = {'/bin': 'utf-8', '/usr/bin/': 'utf-8'}
 endif
@@ -167,14 +171,10 @@ augroup vimshell_settings
 augroup END
 
 function! s:vimshell_settings()
-    " Hide vimshell buffer by ESC
     nmap <buffer> <ESC><ESC><ESC> <Plug>(vimshell_hide)
 endfunction
 
-" vim-multiple-cursors
-let g:multi_cursor_use_default_mapping = 1
-
-" vim-textmanip
+"---- vim-textmanip ----
 xmap <Space>d <Plug>(textmanip-duplicate-down)
 nmap <Space>d <Plug>(textmanip-duplicate-down)
 xmap <Space>D <Plug>(textmanip-duplicate-up)
@@ -183,12 +183,19 @@ nmap <Space>D <Plug>(textmanip-duplicate-up)
 xmap <C-j> <Plug>(textmanip-move-down)
 xmap <C-k> <Plug>(textmanip-move-up)
 
-" vim-fontzoom
+"---- vim-multiple-cursors ----
+let g:multi_cursor_use_default_mapping = 1
+
+"---- vim-visualstar ----
+map * <Plug>(visualstar-*)Nzz
+map # <Plug>(visualstar-#)Nzz
+
+"---- vim-fontzoom ----
 let g:fontzoom_no_default_key_mappings = 1
 nmap + <Plug>(fontzoom-larger)
 nmap - <Plug>(fontzoom-smaller)
 
-" vim-fugitive
+"---- vim-fugitive ----
 nnoremap ,gs :<C-u>Gstatus<CR>
 nnoremap ,gd :<C-u>Gdiff<CR>
 nnoremap ,gD :<C-u>Gdiff<Space>
@@ -198,13 +205,22 @@ nnoremap ,gw :<C-u>Gwrite<CR>
 nnoremap ,gr :<C-u>Gread<CR>
 nnoremap ,ge :<C-u>Gedit<CR>
 
-" vim-visualstar
-map * <Plug>(visualstar-*)Nzz
-map # <Plug>(visualstar-#)Nzz
+"---- vim-airline ----
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'molokai'
+let g:airline#extensions#tabline#enabled = 1
 
-" previm
-let g:previm_show_header = 0
+"---- syntastic ----
+let g:syntastic_mode_map = { 'mode': 'passive' }
 
+"---- vim-devicons ----
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
+let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+
+"-----------------------------------------------------------------------------
+"---- key mappins ----
 " lhs comments
 vmap ,# :s/^/#/<CR>:nohlsearch<CR>
 vmap ,/ :s/^/\/\//<CR>:nohlsearch<CR>
@@ -226,10 +242,10 @@ vmap ,d :s/^\([/(]\*\\|<!--\) \(.*\) \(\*[/)]\\|-->\)$/\2/<CR>:nohlsearch<CR>
 vmap ,b v`<I<CR><esc>k0i/*<ESC>`>j0i*/<CR><esc><ESC>
 vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
 
-" key mappings
+" other useful mappings
 nnoremap <silent> ,/ :<C-u>nohlsearch<CR>:<C-u>redraw!<CR>
-"inoremap " ""<LEFT>
-"inoremap ' ''<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
 inoremap ( ()<LEFT>
 inoremap [ []<LEFT>
 inoremap { {}<LEFT>
@@ -251,29 +267,7 @@ nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
 nnoremap <silent> ,n :<C-u>call <SID>NumberToggle()<CR>
 
-function! s:NumberToggle()
-    if (&number)
-        set nonumber
-        set relativenumber
-    elseif (&relativenumber)
-        set norelativenumber
-        set number
-    else
-        set number
-    endif
-endfunction
-
-" options
-augroup vimrcEx
-    autocmd!
-    autocmd FileType text setlocal textwidth=78
-    autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-augroup END
-
-syntax on
+"---- options ----
 set ignorecase
 set smartcase
 set nostartofline
@@ -308,12 +302,6 @@ set novisualbell
 set noautochdir
 set modeline
 set diffopt=vertical,icase,filler
-
-augroup fopt
-    autocmd!
-    autocmd FileType * setlocal formatoptions-=ro
-augroup END
-
 set grepprg=grep\ -rnH\ --exclude-dir=.svn\ --exclude-dir=.git
 set clipboard+=unnamed
 set virtualedit+=block
@@ -327,30 +315,53 @@ set foldmethod=marker
 set foldlevelstart=0
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 set timeout ttimeoutlen=100
-"set ambiwidth=double
 set cursorline
 set mouse=a
 set ttymouse=xterm2
+set noshowmode
 let g:filetype_m = 'objc'
+
+"---- autocmd groups ----
+augroup fopt
+    autocmd!
+    autocmd FileType * setlocal formatoptions-=ro
+augroup END
 
 augroup detect_vh_file
     autocmd!
     autocmd bufNewFile,bufRead *.vh setfiletype verilog
 augroup END
 
-set noshowmode
+augroup vimrcEx
+    autocmd!
+    autocmd FileType text setlocal textwidth=78
+    autocmd BufReadPost *
+    \ if line("'\"") > 1 && line("'\"") <= line("$") |
+    \   exe "normal! g`\"" |
+    \ endif
+augroup END
 
-" color
-colorscheme molokai
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'molokai'
-let g:airline#extensions#tabline#enabled = 1
+"---- functions ----
+function! s:NumberToggle()
+    if (&number)
+        set nonumber
+        set relativenumber
+    elseif (&relativenumber)
+        set norelativenumber
+        set number
+    else
+        set number
+    endif
+endfunction
 
+"---- color ----
 if (has('termguicolors') && $TERM_PROGRAM!='Apple_Terminal')
     set termguicolors
 else
     set t_Co=256
 endif
+
+colorscheme molokai
 
 highlight Normal ctermbg=none
 highlight NonText ctermbg=none
