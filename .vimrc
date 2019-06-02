@@ -152,7 +152,6 @@ endfunction
 
 nnoremap <silent> ,v :<C-u>VimFiler<CR>
 nnoremap <silent> ,b :<C-u>VimFilerBufferDir<CR>
-nnoremap <silent> ,t :<C-u>VimFilerExplorer<CR>
 
 "---- vimshell.vim ----
 if has('win32') || has('win64')
@@ -173,6 +172,9 @@ augroup END
 function! s:vimshell_settings()
     nmap <buffer> <ESC><ESC><ESC> <Plug>(vimshell_hide)
 endfunction
+
+"---- nerdtree ----
+nnoremap <silent> ,t :<C-u>NERDTreeToggle<CR>
 
 "---- vim-textmanip ----
 xmap <Space>d <Plug>(textmanip-duplicate-down)
@@ -207,7 +209,7 @@ nnoremap ,ge :<C-u>Gedit<CR>
 
 "---- vim-airline ----
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'molokai'
+let g:airline_theme = 'distinguished'
 let g:airline#extensions#tabline#enabled = 1
 
 "---- syntastic ----
@@ -268,6 +270,7 @@ nmap <C-l> <C-w>l
 nnoremap <silent> ,n :<C-u>call <SID>NumberToggle()<CR>
 
 "---- options ----
+set cursorline
 set ignorecase
 set smartcase
 set nostartofline
@@ -315,7 +318,6 @@ set foldmethod=marker
 set foldlevelstart=0
 set foldopen=block,hor,insert,jump,mark,percent,quickfix,search,tag,undo
 set timeout ttimeoutlen=100
-set cursorline
 set mouse=a
 set ttymouse=xterm2
 set noshowmode
