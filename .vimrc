@@ -209,7 +209,7 @@ nnoremap ,ge :<C-u>Gedit<CR>
 
 "---- vim-airline ----
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'distinguished'
+let g:airline_theme = 'minimalist'
 let g:airline#extensions#tabline#enabled = 1
 
 "---- syntastic ----
@@ -365,8 +365,10 @@ endif
 
 colorscheme molokai
 
-highlight Normal ctermbg=none
-highlight NonText ctermbg=none
-highlight LineNr ctermbg=none
-highlight Folded ctermbg=none
-highlight EndOfBuffer ctermbg=none
+highlight VertSplit ctermfg=235 ctermbg=235 guifg='gray15' guibg='gray15'
+
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight LineNr ctermbg=NONE guibg=NONE
+highlight Folded ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
