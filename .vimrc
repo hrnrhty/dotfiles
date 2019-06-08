@@ -33,11 +33,12 @@ Plug 'Shougo/vimshell.vim'
 Plug 'amal-khailtash/vim-xdc-syntax', { 'for': 'xdc' }
 Plug 'jezcope/vim-align'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 't9md/vim-textmanip'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-visualstar'
 Plug 'thinca/vim-fontzoom'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
