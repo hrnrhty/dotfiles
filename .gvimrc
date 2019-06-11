@@ -8,7 +8,7 @@
 "
 "-----------------------------------------------------------------------------
 "---- font ----
-let fontname = 'Ricty\ for\ Powerline'
+let fontname = 'Cica'
 
 if has('win32') || has('win64') || has('mac')
     execute 'set guifont='.fontname.':h12'

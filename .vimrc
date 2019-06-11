@@ -271,6 +271,7 @@ nmap <C-l> <C-w>l
 nnoremap <silent> ,n :<C-u>call <SID>NumberToggle()<CR>
 
 "---- options ----
+set ambiwidth=double
 set cursorline
 set ignorecase
 set smartcase
