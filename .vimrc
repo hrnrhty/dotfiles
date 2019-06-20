@@ -31,6 +31,7 @@ Plug 'Shougo/vimfiler.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell.vim'
 Plug 'amal-khailtash/vim-xdc-syntax', { 'for': 'xdc' }
+Plug 'jacoborus/tender.vim'
 Plug 'jezcope/vim-align'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -39,7 +40,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-visualstar'
 Plug 'thinca/vim-fontzoom'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'tomasr/molokai'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -210,7 +210,7 @@ nnoremap ,ge :<C-u>Gedit<CR>
 
 "---- vim-airline ----
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'minimalist'
+let g:airline_theme = 'tender'
 let g:airline#extensions#tabline#enabled = 1
 
 "---- syntastic ----
@@ -220,7 +220,7 @@ let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 1
-let g:WebDevIconsNerdTreeAfterGlyphPadding = '  '
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 
 "-----------------------------------------------------------------------------
 "---- key mappins ----
@@ -365,12 +365,14 @@ else
     set t_Co=256
 endif
 
-colorscheme molokai
+set background=dark
 
-highlight VertSplit ctermfg=235 ctermbg=235 guifg='gray15' guibg='gray15'
+colorscheme tender
 
-highlight Normal ctermbg=NONE guibg=NONE
-highlight NonText ctermbg=NONE guibg=NONE
-highlight LineNr ctermbg=NONE guibg=NONE
-highlight Folded ctermbg=NONE guibg=NONE
-highlight EndOfBuffer ctermbg=NONE guibg=NONE
+highlight! link NERDTreeFlags NERDTreeDir
+
+"highlight Normal ctermbg=NONE guibg=NONE
+"highlight NonText ctermbg=NONE guibg=NONE
+"highlight LineNr ctermbg=NONE guibg=NONE
+"highlight Folded ctermbg=NONE guibg=NONE
+"highlight EndOfBuffer ctermbg=NONE guibg=NONE
