@@ -44,4 +44,4 @@ function! s:MenuToggle()
 endfunction
 
 "---- color ----
-colorscheme molokai
+colorscheme tender
