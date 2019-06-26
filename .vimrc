@@ -174,8 +174,16 @@ function! s:vimshell_settings()
     nmap <buffer> <ESC><ESC><ESC> <Plug>(vimshell_hide)
 endfunction
 
+"---- vim-markdown ----
+let g:vim_markdown_folding_disabled = 1
+
 "---- nerdtree ----
 nnoremap <silent> ,t :<C-u>NERDTreeToggle<CR>
+let g:NERDTreeShowBookmarks = 1
+autocmd StdinReadPre * let s:std_in = 1
+if argc() == 0 && !exists("s:std_in")
+    autocmd VimEnter * NERDTree
+endif
 
 "---- vim-textmanip ----
 xmap <Space>d <Plug>(textmanip-duplicate-down)
