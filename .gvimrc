@@ -27,6 +27,11 @@ set lines=53
 set showtabline=1
 set guioptions-=T
 set guioptions-=m
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
+set guioptions-=b
 
 source $VIMRUNTIME/delmenu.vim
 set langmenu=ja_jp.utf-8
