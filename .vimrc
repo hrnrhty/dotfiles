@@ -34,7 +34,7 @@ Plug 'amal-khailtash/vim-xdc-syntax', { 'for': 'xdc' }
 Plug 'jacoborus/tender.vim'
 Plug 'jezcope/vim-align'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree'
 Plug 't9md/vim-textmanip'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-visualstar'
@@ -180,10 +180,8 @@ let g:vim_markdown_folding_disabled = 1
 "---- nerdtree ----
 nnoremap <silent> ,t :<C-u>NERDTreeToggle<CR>
 let g:NERDTreeShowBookmarks = 1
-autocmd StdinReadPre * let s:std_in = 1
-if argc() == 0 && !exists("s:std_in")
-    autocmd VimEnter * NERDTree
-endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 "---- vim-textmanip ----
 xmap <Space>d <Plug>(textmanip-duplicate-down)
