@@ -253,8 +253,8 @@ vmap ,h v`<I<CR><esc>k0i<!--<ESC>`>j0i--><CR><esc><ESC>
 
 " other useful mappings
 nnoremap <silent> ,/ :<C-u>nohlsearch<CR>:<C-u>redraw!<CR>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
+"inoremap " ""<LEFT>
+"inoremap ' ''<LEFT>
 inoremap ( ()<LEFT>
 inoremap [ []<LEFT>
 inoremap { {}<LEFT>
