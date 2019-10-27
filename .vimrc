@@ -181,7 +181,7 @@ let g:vim_markdown_folding_disabled = 1
 nnoremap <silent> ,t :<C-u>NERDTreeToggle<CR>
 let g:NERDTreeShowBookmarks = 1
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+"autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
 "---- vim-textmanip ----
 xmap <Space>d <Plug>(textmanip-duplicate-down)
