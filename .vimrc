@@ -305,8 +305,6 @@ set noundofile
 set writebackup
 set hlsearch
 set incsearch
-set cmdheight=2
-set report=2
 set showmode
 set confirm
 set novisualbell
@@ -376,9 +374,3 @@ set background=dark
 colorscheme tender
 
 highlight! link NERDTreeFlags NERDTreeDir
-
-"highlight Normal ctermbg=NONE guibg=NONE
-"highlight NonText ctermbg=NONE guibg=NONE
-"highlight LineNr ctermbg=NONE guibg=NONE
-"highlight Folded ctermbg=NONE guibg=NONE
-"highlight EndOfBuffer ctermbg=NONE guibg=NONE
