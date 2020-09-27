@@ -20,8 +20,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'KannoKanno/previm', { 'for': 'markdown' }
 Plug 'Kocha/vim-systemc', { 'for': 'cpp' }
 Plug 'Lokaltog/vim-easymotion'
-Plug 'Shougo/neocomplete'
-Plug 'Shougo/neocomplcache.vim'
 Plug 'Shougo/neomru.vim'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
@@ -33,7 +31,11 @@ Plug 'Shougo/vimshell.vim'
 Plug 'amal-khailtash/vim-xdc-syntax', { 'for': 'xdc' }
 Plug 'jacoborus/tender.vim'
 Plug 'jezcope/vim-align'
+Plug 'mattn/vim-lsp-settings'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'scrooloose/nerdtree'
 Plug 't9md/vim-textmanip'
 Plug 'terryma/vim-multiple-cursors'
@@ -58,21 +60,6 @@ let g:previm_show_header = 0
 "---- vim-easymotion ----
 map ,, <Plug>(easymotion-prefix)
 
-"---- neocomplete ----
-if has('lua')
-    let g:neocomplete#enable_at_startup = 1
-    let g:neocomplete#enable_smart_case = 1
-    if !exists('g:neocomplete#sources#omni#input_patterns')
-        let g:neocomplete#sources#omni#input_patterns = {}
-    endif
-    let g:neocomplete#sources#omni#input_patterns.python = ''
-endif
-
-"---- neocomplcache.vim ----
-if !has('lua')
-    let g:neocomplcache_enable_at_startup = 1
-    let g:neocomplcache_enable_smart_case = 1
-endif
 
 "---- neosnippet.vim ----
 let g:neosnippet#snippets_directory = '~/.snippets'
@@ -176,6 +163,12 @@ endfunction
 
 "---- vim-markdown ----
 let g:vim_markdown_folding_disabled = 1
+
+"---- asyncomplete.vim ----
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+imap <c-space> <Plug>(asyncomplete_force_refresh)
 
 "---- nerdtree ----
 nnoremap <silent> ,t :<C-u>NERDTreeToggle<CR>
