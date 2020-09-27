@@ -31,6 +31,8 @@ Plug 'Shougo/vimshell.vim'
 Plug 'amal-khailtash/vim-xdc-syntax', { 'for': 'xdc' }
 Plug 'jacoborus/tender.vim'
 Plug 'jezcope/vim-align'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'mattn/vim-lsp-settings'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'prabirshrestha/asyncomplete.vim'
