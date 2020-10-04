@@ -36,7 +36,11 @@ Plug 'junegunn/fzf.vim'
 Plug 'mattn/vim-lsp-settings'
 Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-buffer.vim'
+Plug 'prabirshrestha/asyncomplete-emoji.vim'
+Plug 'prabirshrestha/asyncomplete-file.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'scrooloose/nerdtree'
 Plug 'simeji/winresizer'
@@ -54,6 +58,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/vcscommand.vim'
 Plug 'vim-scripts/CmdlineComplete'
 Plug 'vim-syntastic/syntastic'
+Plug 'yami-beta/asyncomplete-omni.vim'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
@@ -62,7 +67,6 @@ let g:previm_show_header = 0
 
 "---- vim-easymotion ----
 map ,, <Plug>(easymotion-prefix)
-
 
 "---- neosnippet.vim ----
 let g:neosnippet#snippets_directory = '~/.snippets'
@@ -173,6 +177,41 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 imap <c-space> <Plug>(asyncomplete_force_refresh)
 
+"---- asyncomplete-buffer.vim ----
+call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+    \ 'name': 'buffer',
+    \ 'allowlist': ['*'],
+    \ 'blocklist': ['go'],
+    \ 'completor': function('asyncomplete#sources#buffer#completor'),
+    \ 'config': {
+    \    'max_buffer_size': 5000000,
+    \  },
+    \ }))
+
+let g:asyncomplete_buffer_clear_cache = 1
+
+"---- asyncomplete-emoji.vim ----
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#emoji#get_source_options({
+    \ 'name': 'emoji',
+    \ 'whitelist': ['*'],
+    \ 'completor': function('asyncomplete#sources#emoji#completor'),
+    \ }))
+
+"---- asyncomplete-file.vim ----
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+    \ 'name': 'file',
+    \ 'whitelist': ['*'],
+    \ 'priority': 10,
+    \ 'completor': function('asyncomplete#sources#file#completor')
+    \ }))
+
+"---- asyncomplete-neosnippet.vim ----
+call asyncomplete#register_source(asyncomplete#sources#neosnippet#get_source_options({
+    \ 'name': 'neosnippet',
+    \ 'whitelist': ['*'],
+    \ 'completor': function('asyncomplete#sources#neosnippet#completor'),
+    \ }))
+
 "---- nerdtree ----
 nnoremap <silent> ,t :<C-u>NERDTreeToggle<CR>
 let g:NERDTreeShowBookmarks = 1
@@ -221,6 +260,17 @@ let g:airline#extensions#tabline#enabled = 1
 
 "---- syntastic ----
 let g:syntastic_mode_map = { 'mode': 'passive' }
+
+"---- asyncomplete-omni.vim ----
+call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+    \ 'name': 'omni',
+    \ 'whitelist': ['*'],
+    \ 'blacklist': ['c', 'cpp', 'html'],
+    \ 'completor': function('asyncomplete#sources#omni#completor'),
+    \ 'config': {
+    \   'show_source_kind': 1
+    \ }
+    \ }))
 
 "---- vim-devicons ----
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
