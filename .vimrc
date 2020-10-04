@@ -43,7 +43,6 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'scrooloose/nerdtree'
-Plug 'simeji/winresizer'
 Plug 't9md/vim-textmanip'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-visualstar'
@@ -217,10 +216,6 @@ nnoremap <silent> ,t :<C-u>NERDTreeToggle<CR>
 let g:NERDTreeShowBookmarks = 1
 autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
-
-"---- winresizer ----
-let g:winresizer_vert_resize = 1
-let g:winresizer_horiz_resize = 1
 
 "---- vim-textmanip ----
 xmap <Space>d <Plug>(textmanip-duplicate-down)
