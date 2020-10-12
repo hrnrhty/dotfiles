@@ -28,13 +28,13 @@ Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell.vim'
-Plug 'amal-khailtash/vim-xdc-syntax', { 'for': 'xdc' }
+Plug 'airblade/vim-gitgutter'
 Plug 'jacoborus/tender.vim'
 Plug 'jezcope/vim-align'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'mattn/vim-lsp-settings'
-Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-buffer.vim'
 Plug 'prabirshrestha/asyncomplete-emoji.vim'
@@ -43,11 +43,13 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete-neosnippet.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
 Plug 't9md/vim-textmanip'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'thinca/vim-visualstar'
 Plug 'thinca/vim-fontzoom'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -167,13 +169,10 @@ function! s:vimshell_settings()
     nmap <buffer> <ESC><ESC><ESC> <Plug>(vimshell_hide)
 endfunction
 
-"---- vim-markdown ----
-let g:vim_markdown_folding_disabled = 1
-
 "---- asyncomplete.vim ----
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
+inoremap <expr> <CR>    pumvisible() ? asyncomplete#close_popup() : "\<CR>"
 imap <c-space> <Plug>(asyncomplete_force_refresh)
 
 "---- asyncomplete-buffer.vim ----
@@ -216,6 +215,9 @@ nnoremap <silent> ,t :<C-u>NERDTreeToggle<CR>
 let g:NERDTreeShowBookmarks = 1
 autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
+"---- vim-polyglot/vim-markdown ----
+let g:vim_markdown_folding_disabled = 1
 
 "---- vim-textmanip ----
 xmap <Space>d <Plug>(textmanip-duplicate-down)
