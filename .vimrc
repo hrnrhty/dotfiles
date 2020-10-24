@@ -29,6 +29,7 @@ Plug 'Shougo/vimfiler.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'dense-analysis/ale'
 Plug 'jacoborus/tender.vim'
 Plug 'jezcope/vim-align'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -58,7 +59,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/vcscommand.vim'
 Plug 'vim-scripts/CmdlineComplete'
-Plug 'vim-syntastic/syntastic'
 Plug 'yami-beta/asyncomplete-omni.vim'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
@@ -254,9 +254,6 @@ nnoremap ,ge :<C-u>Gedit<CR>
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'tender'
 let g:airline#extensions#tabline#enabled = 1
-
-"---- syntastic ----
-let g:syntastic_mode_map = { 'mode': 'passive' }
 
 "---- asyncomplete-omni.vim ----
 call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
