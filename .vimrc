@@ -216,9 +216,6 @@ let g:NERDTreeShowBookmarks = 1
 autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
-"---- vim-polyglot/vim-markdown ----
-let g:vim_markdown_folding_disabled = 1
-
 "---- vim-textmanip ----
 xmap <Space>d <Plug>(textmanip-duplicate-down)
 nmap <Space>d <Plug>(textmanip-duplicate-down)
