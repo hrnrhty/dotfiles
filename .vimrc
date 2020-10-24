@@ -169,6 +169,9 @@ function! s:vimshell_settings()
     nmap <buffer> <ESC><ESC><ESC> <Plug>(vimshell_hide)
 endfunction
 
+"---- goyo.vim ----
+let g:goyo_width = '80%'
+
 "---- asyncomplete.vim ----
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
