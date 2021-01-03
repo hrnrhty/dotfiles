@@ -8,7 +8,7 @@
 "
 "-----------------------------------------------------------------------------
 "---- font ----
-let fontname = 'Cica'
+let fontname = 'HackGenNerd\ Console'
 
 if has('win32') || has('win64') || has('mac')
     execute 'set guifont='.fontname.':h12'

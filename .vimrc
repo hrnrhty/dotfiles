@@ -29,6 +29,7 @@ Plug 'Shougo/vimfiler.vim'
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'Shougo/vimshell.vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'dense-analysis/ale'
 Plug 'jacoborus/tender.vim'
 Plug 'jezcope/vim-align'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -58,7 +59,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/vcscommand.vim'
 Plug 'vim-scripts/CmdlineComplete'
-Plug 'vim-syntastic/syntastic'
 Plug 'yami-beta/asyncomplete-omni.vim'
 Plug 'ryanoasis/vim-devicons'
 call plug#end()
@@ -169,6 +169,9 @@ function! s:vimshell_settings()
     nmap <buffer> <ESC><ESC><ESC> <Plug>(vimshell_hide)
 endfunction
 
+"---- goyo.vim ----
+let g:goyo_width = '80%'
+
 "---- asyncomplete.vim ----
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -216,9 +219,6 @@ let g:NERDTreeShowBookmarks = 1
 autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 
-"---- vim-polyglot/vim-markdown ----
-let g:vim_markdown_folding_disabled = 1
-
 "---- vim-textmanip ----
 xmap <Space>d <Plug>(textmanip-duplicate-down)
 nmap <Space>d <Plug>(textmanip-duplicate-down)
@@ -254,9 +254,6 @@ nnoremap ,ge :<C-u>Gedit<CR>
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'tender'
 let g:airline#extensions#tabline#enabled = 1
-
-"---- syntastic ----
-let g:syntastic_mode_map = { 'mode': 'passive' }
 
 "---- asyncomplete-omni.vim ----
 call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
@@ -324,7 +321,6 @@ nmap <C-l> <C-w>l
 nnoremap <silent> ,n :<C-u>call <SID>NumberToggle()<CR>
 
 "---- options ----
-set ambiwidth=double
 set cursorline
 set ignorecase
 set smartcase
