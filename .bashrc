@@ -23,6 +23,14 @@ if [ -e ${HOME}/bin ]; then
     export PATH=${PATH}:${HOME}/bin
 fi
 
+#---- fzf ----
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+bind '"ç": "\ec"'
+export FZF_DEFAULT_COMMAND='find . -path './.git' -prune -o -print'
+export FZF_CTRL_T_COMMAND='find . -path './.git' -prune -o -print'
+export FZF_DEFAULT_OPTS='--height 40% --reverse --border --inline-info --preview "head -200 {}"'
+export FZF_ALT_C_OPTS='--no-preview'
+
 #---- aliases ----
 if [ `echo ${OSTYPE} | grep 'darwin'` ]; then
     alias ls='ls -CF -G'
@@ -77,6 +85,4 @@ alias svs='svn status'
 alias svu='svn update'
 
 #---- local settings ----
-if [ -e ~/.bashrc.local ]; then
-    source ~/.bashrc.local
-fi
+[ -e ~/.bashrc.local ] && source ~/.bashrc.local
